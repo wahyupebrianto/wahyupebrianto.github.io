@@ -12,8 +12,9 @@ profile:
     <p>123 your address street</p>
     <p>Your City, State 12345</p>
 ---
-
-![My helpful screenshot](/assets/images/WAHYU.jpg)
+{:refdef: style="text-align: center;"}
+![My helpful screenshot](/assets/images/WAHYU.jpg){:height="250px" width="200px"}
+{: refdef}
 
 Wahyu Pebrianto is Researcher. His received Bachelor Degree in Informatics Engineering (S.Tr.Kom) from Jember State Polytechnic and received Master of Engineering (M.Eng) from [University of Brawijaya](https://www.ub.ac.id/) under the guidance Dr.Eng. Panca Mudjirahardjo and Prof. Sholeh Hadi Pramono.
 

@@ -3,7 +3,7 @@ layout: post
 title: Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face
 excerpt: "Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi."
 author: Wahyu Pebrianto
-date: 2024-04-15 13:26:00
+date: 2024-05-15 13:26:00
 tags: formatting code
 categories: DL
 feature_image: https://www.freecodecamp.org/news/content/images/size/w2000/2024/01/Untitled-design.png

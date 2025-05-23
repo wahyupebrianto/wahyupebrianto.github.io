@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://wahyu.pebrianto.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wahyu.pebrianto.github.io/" rel="alternate" type="text/html" /><updated>2025-05-23T09:14:37+07:00</updated><id>https://wahyu.pebrianto.github.io/feed.xml</id><title type="html">Wahyu Pebrianto</title><subtitle>Dosen | Peneliti | AI | DL | ML | CV | GenAI.</subtitle><entry><title type="html">Contoh Post Blog</title><link href="https://wahyu.pebrianto.github.io/ai/teaching/2025/05/22/contoh-post.html" rel="alternate" type="text/html" title="Contoh Post Blog" /><published>2025-05-22T00:00:00+07:00</published><updated>2025-05-22T00:00:00+07:00</updated><id>https://wahyu.pebrianto.github.io/ai/teaching/2025/05/22/contoh-post</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/ai/teaching/2025/05/22/contoh-post.html"><![CDATA[<p>Isi lengkap blog…</p>]]></content><author><name></name></author><category term="AI" /><category term="Teaching" /><summary type="html"><![CDATA[Ini adalah ringkasan atau kutipan dari blog post ini...]]></summary></entry><entry><title type="html">Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face</title><link href="https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html" rel="alternate" type="text/html" title="Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face" /><published>2024-05-15T20:26:00+07:00</published><updated>2024-05-15T20:26:00+07:00</updated><id>https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html"><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>Tujuan utama blog ini yaitu memberi anda panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.</p>
+
+<p>Dalam panduan singkat ini, Anda akan menerapkan deep learning pada contoh tugas computer vision: image classification/recognition.
+Anda akan memanfaatkan data yang telah dikumpulkan oleh para peneliti yang biasanya mereka sediakan secara online untuk tujuan pengembangan di bidang penelitian.
+Dalam hal ini anda akan menggunakan data The Oxford-IIIT Pet sebanyak 7.349 kumpulan data gambar pada 37 kategori hewan peliharaan dengan sekitar 200 gambar untuk setiap kelas, yang berasal dari hasil riset universitas Oxford <a href="https://www.robots.ox.ac.uk/~vgg/data/pets/">[1]</a>.
+Dalam segi Model, Anda akan memanfaatkan pre-trained model ResNet-50 <a href="https://ieeexplore.ieee.org/document/7780459">[2]</a> yang telah dilatih dengan data skala besar ImageNet <a href="https://ieeexplore.ieee.org/document/5206848">[3]</a> dan kita lakukan fine-tuning ke data Oxford-IIIT Pet. Untuk Interface, Anda akan menggunakan web sebagai user interface dengan memanfaatkan gradio <a href="https://www.gradio.app/">[4]</a>. Sementara untuk proses deployment, Anda akan memanfaatkan Hugging face <a href="https://huggingface.co/">[5]</a>.</p>
+
+<p><strong>Catatan:</strong> di blog ini saya tidak menjelaskan hal-hal fundamental penggunaan teknologi (Contoh: Git, Jupyter notebook, installasi package/kerangka kerja, dsb), juga teori dasar Deep Learning.</p>
+
+<p>Berikut outline blog ini:</p>
+<ol>
+  <li>Apa itu fastAI?</li>
+  <li>Apa itu Hugging Face?</li>
+  <li>Proses Systematic:
+    <ul>
+      <li>Mulai dengan melatih model deep learning (Image Recognition) dengan FastAI,</li>
+      <li>Mari kita mempersiapkan gradio,</li>
+      <li>Mari kita melakukan deployment model kita ke produksi dengan memanfaatkan Hugging Space</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="apa-itu-fastai">Apa itu FastAI?</h1>
+<p>FastAI <a href="https://www.mdpi.com/2078-2489/11/2/108">[6]</a> adalah kerangka kerja deep learning yang bangun oleh Jeremy Howard dan Rachel Thomas untuk pendekatan praktis dalam penerapan deep learning. Kerangka kerja ini menawarkan hight-level API ke PyTorch dan menawarkan kursus pendampingan untuk membantu siswa dalam menerapkan deep learning dengan mudah. Untuk detail lengkapnya anda bisa membaca di sumber berikut <a href="https://www.mdpi.com/2078-2489/11/2/108">[6]</a>.</p>
+
+<h1 id="apa-itu-gradio">Apa itu gradio?</h1>
+<p>Gradio <a href="https://www.gradio.app/">[4]</a> adalah salah satu package python untuk membantu anda dengan cepat membuat aplikasi web untuk tujuan melakukan deploy model machine learning atau deep learning anda. Jangan kawatir !! selain bersifat open source, gradio benar-benar dapat membantu anda membuat aplikasi web dengan cepat karena fitur bawaan gradio meskipun anda tidak memiliki keterampilan dalam pemograman web.</p>
+
+<h1 id="apa-itu-hugging-face">Apa itu Hugging Face?</h1>
+<p>Namanya membuat saya tertarik :D. Hungging Face <a href="https://huggingface.co/">[5]</a>  atau secara umum dikenal sebagai HuggingSpace adalah platform tempat seorang developer juga penggemar AI  dapat membuat, menghosting, dan berbagi aplikasi machine learning/deep learning mereka dengan mudah.</p>
+
+<h1 id="proses-systematic-mulai-melatih-model-deep-learning-image-recognition-dengan-fastai">Proses Systematic: Mulai melatih model deep learning (Image Recognition) dengan FastAI</h1>
+<p>Dalam proses ini, Anda tidak perlu kawatir karena anda bisa dengan mudah menjalankannya menggunakan kerangka kerja FastAI sebagaimana jika anda mengikuti kode berikut:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">path</span> <span class="o">=</span> <span class="nf">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="p">.</span><span class="n">PETS</span><span class="p">)</span>
+<span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="p">.</span><span class="nf">from_name_re</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nf">get_image_files</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="sh">'</span><span class="s">images</span><span class="sh">'</span><span class="p">),</span>
+    <span class="n">pat</span><span class="o">=</span><span class="sh">'</span><span class="s">(.+)_\d+.jpg</span><span class="sh">'</span><span class="p">,</span> <span class="n">item_tfms</span><span class="o">=</span><span class="nc">Resize</span><span class="p">(</span><span class="mi">460</span><span class="p">),</span> 
+    <span class="n">batch_tfms</span><span class="o">=</span><span class="nf">aug_transforms</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">min_scale</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">learn</span> <span class="o">=</span> <span class="nf">vision_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">models</span><span class="p">.</span><span class="n">resnet50</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
+<span class="n">learn</span><span class="p">.</span><span class="nf">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">learn</span><span class="p">.</span><span class="n">path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="sh">'</span><span class="s">.</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">learn</span><span class="p">.</span><span class="nf">export</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Penjelasan singkat kode di atas:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">from fastai.vision.all import *</code>: ini memberi anda akses ke semua kelas yang anda perlukan untuk membuat model computer vision yang disediakan oleh FastAI.</li>
+  <li><code class="language-plaintext highlighter-rouge">path = untar_data(URLs.PETS)</code>: melakukan download kumpulan data dari koleksi data fast.ai (jika belum diunduh sebelumnya) ke server Anda, mengekstraknya (jika belum diekstraksi sebelumnya), dan mengembalikan Path objek dengan lokasi yang diekstraksi.</li>
+  <li><code class="language-plaintext highlighter-rouge">dls</code>: Merupakan dataLoader anda (didalamnya terdiri dari lokasi data gambar &amp; label, fungsi transform yang berisi script yang diterapkan secara otomatis selama proses training).</li>
+  <li><code class="language-plaintext highlighter-rouge">learn</code>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">vision_learner</code>: fungsi untuk memanggil kelas, yang mana vision_learner juga memiliki parameter pretrained, yang defaultnya adalah True. catatan: Saat menggunakan model yang telah dilatih sebelumnya (pretrained model), vision_learner akan menghapus lapisan terakhir, karena lapisan tersebut selalu disesuaikan secara khusus dengan tugas pelatihan asli (yaitu klasifikasi kumpulan data ImageNet), dan menggantinya dengan satu atau lebih lapisan baru dengan bobot yang random, dengan ukuran yang sesuai untuk kumpulan data Anda saat ini yang kita kenal dengan teknik transfer learning.
+        <blockquote>
+          <p>Catatan singkat: (Transfer Learning: Menggunakan model yang telah dilatih sebelumnya untuk tugas yang berbeda dengan model yang telah dilatih sebelumnya.).</p>
+        </blockquote>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">dls</code>: data apa yang ingin kita latih.</li>
+          <li><code class="language-plaintext highlighter-rouge">resnet50</code>: kita memberi tahu kearngka kerja untuk membuat Convolutional Neural Network (CNN) dan menentukan arsitektur apa yang akan digunakan (yaitu jenis model apa yang akan dibuat, disini anda menggunakan arsitektur Resnet 50 lapisan).</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">metrics=accuracy</code>: ini memberitahu metrics apa yang akan digunakan.
+        <blockquote>
+          <p>Catatan singkat: Metrics adalah fungsi yang mengukur kualitas prediksi model menggunakan data set validasi, dan akan ditampilkan pada akhir setiap epoch.</p>
+        </blockquote>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">learn.fine-tuning(1)</code>: kita memberi tahu kerangka kerja cara menyesuaikan model, kita menggunakan fine_tune bukan fit karena kita memanfaatkan model yang telah dilatih sebelumnya. (1) artinya kita melatih model sebanyak satu epoch.
+        <blockquote>
+          <p>Catatan singkat: (Fine-tuning: Teknik Transfer Learning di mana parameter model yang telah dilatih sebelumnya diperbarui dengan pelatihan untuk periode tambahan menggunakan tugas yang berbeda dengan yang digunakan untuk pra-pelatihan).</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">learn.path = Path('.')</code> dan <code class="language-plaintext highlighter-rouge">learn.export()</code>: mengatur lokasi dan menyimpan model yang telah dilatih.</li>
+</ul>
+
+<h1 id="mari-kita-mulai-mempersiapkan-gradio">Mari kita mulai mempersiapkan Gradio</h1>
+<p><strong>Langkah pertama</strong>: Load model yang telah dilatih dan buat fungsi untuk prediksi.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">learn</span> <span class="o">=</span> <span class="nf">load_learner</span><span class="p">(</span><span class="sh">'</span><span class="s">export.pkl</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="n">dls</span><span class="p">.</span><span class="n">vocab</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">PILImage</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">pred</span><span class="p">,</span><span class="n">pred_idx</span><span class="p">,</span><span class="n">probs</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="nf">float</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))}</span>
+</code></pre></div></div>
+
+<p><strong>Langkah kedua</strong>: Anda persiapkan Gradio untuk interface web dengan mengikuti kode dibawah dan jalankan di lokal komputer anda.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">gradio</span> <span class="k">as</span> <span class="n">gr</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">pil</span><span class="sh">"</span><span class="p">)</span><span class="c1">#gr.inputs.Image(shape=(192, 192))
+</span><span class="n">label</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Label</span><span class="p">(</span><span class="n">num_top_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="c1">#gr.outputs.Label()
+</span><span class="n">gr</span><span class="p">.</span><span class="nc">Interface</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">label</span><span class="p">).</span><span class="nf">launch</span><span class="p">(</span><span class="n">share</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Dalam hal ini Saya menggunakan Jupyter Lab, berikut tangkapan layar hasil setelah saya menjalankan di komputer lokal saya.</p>
+
+<p><img src="/assets/images/blog-1/localgradio.jpg" alt="Localgradio" /></p>
+
+<h1 id="mari-kita-mulai-melakukan-deployment-model-ke-hugging-face">Mari kita mulai melakukan deployment model ke Hugging Face</h1>
+
+<p>Langkah anda untuk Deploy model ke Hugging face:</p>
+<ul>
+  <li>Langkah Pertama: anda perlu membuat akun di <a href="https://huggingface.co/">[5]</a>.</li>
+  <li>Langkah kedua: Setelah akun dibuat, silahkan login kemudian anda dapat membuat new space:</li>
+</ul>
+
+<p><img src="/assets/images/blog-1/newspace.png" alt="spacegradio" /></p>
+
+<ul>
+  <li>Langkah Ketiga: Clone repository space yang dibuat (kita remote melalui directory lokal komputer) dengan menjalankan <code class="language-plaintext highlighter-rouge">git clone https://huggingface.co/spaces/WahyuLab/recognize</code></li>
+  <li>Langkah Keempat: Setelah di Clone, silahkan tambahkan <code class="language-plaintext highlighter-rouge">4 file</code> di dalam direktori yang telah di clone: <code class="language-plaintext highlighter-rouge">app.py, requirements.txt, export.pkl, dan cat.jpg</code>:</li>
+</ul>
+
+<p>Berikut untuk detail isi filenya:
+File app.py:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">gradio</span> <span class="k">as</span> <span class="n">gr</span>
+<span class="kn">from</span> <span class="n">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="n">skimage</span>
+
+<span class="n">learn</span> <span class="o">=</span> <span class="nf">load_learner</span><span class="p">(</span><span class="sh">'</span><span class="s">export.pkl</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="n">dls</span><span class="p">.</span><span class="n">vocab</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">PILImage</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">pred</span><span class="p">,</span><span class="n">pred_idx</span><span class="p">,</span><span class="n">probs</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="nf">float</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))}</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Pengenalan Ras Hewan Peliharaan Kucing dan Anjing</span><span class="sh">"</span>
+<span class="n">description</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Selamat Datang di Aplikasi Pengklasifikasi ras Hewan Peliharaan yang di training pada kumpulan data Oxford Pets dengan Fastai :D</span><span class="sh">"</span>
+<span class="n">article</span><span class="o">=</span><span class="sh">"</span><span class="s">&lt;p style=</span><span class="sh">'</span><span class="s">text-align: center</span><span class="sh">'</span><span class="s">&gt;&lt;a href=</span><span class="sh">'</span><span class="s">https://wahyupebrianto.github.io/dl/2024/04/15/Gradio-HG-FastAI.html</span><span class="sh">'</span><span class="s"> target=</span><span class="sh">'</span><span class="s">_blank</span><span class="sh">'</span><span class="s">&gt;Blog post&lt;/a&gt;&lt;/p&gt;</span><span class="sh">"</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">cat.jpg</span><span class="sh">'</span><span class="p">]</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">pil</span><span class="sh">"</span><span class="p">)</span><span class="c1">#gr.inputs.Image(shape=(192, 192))
+</span><span class="n">label</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Label</span><span class="p">(</span><span class="n">num_top_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="c1">#gr.outputs.Label()
+</span>
+<span class="n">gr</span><span class="p">.</span><span class="nc">Interface</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span><span class="n">inputs</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+             <span class="n">outputs</span><span class="o">=</span><span class="n">label</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+             <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span><span class="n">article</span><span class="o">=</span><span class="n">article</span><span class="p">,</span><span class="n">examples</span><span class="o">=</span><span class="n">examples</span><span class="p">).</span><span class="nf">launch</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>File requirement.txt:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fastai</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">image</span>
+</code></pre></div></div>
+<p>Kemudian silahkan tambahkan File export.pkl dan satu contoh gambar dengan nama cat.jpg</p>
+
+<ul>
+  <li>Langkah Kelima: Push ke-empat file ke repository gradio:
+<img src="/assets/images/blog-1/file.png" alt="spacegradio" />
+    <blockquote>
+      <p>Catatan: File model export.pkl terlalu besar untuk ditangani oleh git. Jadi anda perlu menggunakan git-lfs (harus Anda instal terlebih dahulu). Disini saya menggunakan WSL dalam proses installasinya dengan menjalankan apt-get install git-lfs. Setelah anda berhasil melakukan installasi silahkan push ke direktori hingga muncul seperti gambar di atas pada huggingspace dengan menjalankan command berikut:</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Langkah pertama:
+</span><span class="n">git</span> <span class="n">lfs</span> <span class="n">install</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">track</span> <span class="sh">"</span><span class="s">*.pkl</span><span class="sh">"</span>
+<span class="n">git</span> <span class="n">add</span> <span class="p">.</span><span class="n">gitattributes</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="sh">"</span><span class="s">update .gitattributes jadi git lfs akan melacak .pkl files</span><span class="sh">"</span>
+<span class="c1">#Langkah kedua push ke Space:
+</span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">am</span> <span class="sh">"</span><span class="s">mari kita terapkan ke huggingface spaces</span><span class="sh">"</span>
+<span class="n">git</span> <span class="n">push</span>
+</code></pre></div></div>
+<p>Setelah proses di atas Anda ikuti, Anda dapat menunggu huggingspaces melakukan build, Anda dapat memeriksanya di bagian logs (tunggu hingga status  menjadi running).</p>
+
+<p><img src="/assets/images/blog-1/running.png" alt="spacegradio" /></p>
+
+<p>Hasil Deployment model deep leaning: Anda dapat memerika hasilnya, Jika berhasil, dan berikut contoh tangkapan layar implementasinya:</p>
+
+<p><img src="/assets/images/blog-1/deployment1.png" alt="spacegradio" /></p>
+
+<p><img src="/assets/images/blog-1/deployment2.png" alt="spacegradio" /></p>
+
+<p>Hasil dari blog ini anda dapat memeriksanya dengan mengikuti link <a href="https://huggingface.co/spaces/WahyuLab/recognize">ini</a></p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="DL" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.]]></summary></entry><entry><title type="html">Model Enam Faktor dari Kesejahteraan Psikologis (Six-factor Model of Psychological Well-being)</title><link href="https://wahyu.pebrianto.github.io/psikologis/2023/04/21/Model-Psychological-Well.html" rel="alternate" type="text/html" title="Model Enam Faktor dari Kesejahteraan Psikologis (Six-factor Model of Psychological Well-being)" /><published>2023-04-21T00:00:00+07:00</published><updated>2023-04-21T00:00:00+07:00</updated><id>https://wahyu.pebrianto.github.io/psikologis/2023/04/21/Model-Psychological-Well</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/psikologis/2023/04/21/Model-Psychological-Well.html"><![CDATA[<p>Oke disini saya akan sedikit menyajikan tentang teori psikologi, yaitu tentang kesehatan mental yang dikemukakan oleh seorang professor psikologis Carol Ryff. perlu diketahui gak banyak orang yang sadar akan kesehatan mental, bahkan terkadang ada juga yang menganggap bahwa kesehatan itu hanya ada dalam faktor fisik yang terlihat dalam diri mereka. Sebenarnya kesehatan itu bukan hanya soal fisik, melainkan juga soal mental, sebelum kita masuk ke dalam pembahasan baiknya kita tau apa itu kesehatan mental:</p>
+
+<p>berdasarkan yang di tulis di situs WHO,Kesehatan mental bisa dikatakan adalah keadaan sejahtera dimana seseorang menyadari kemampuannya sendiri, dapat mengatasi tekanan hidup yang normal, dapat bekerja secara produktif dan mampu memberikan kontribusi kepada komunitasnya.</p>
+
+<p>dari penjelasan di atas adalah definisi tentang kesehatan mental yang didapatkan dari situs WHO, sebenarnya definisi dari kesehatan mental itu sangat luas namun setidaknya penjelasan di atas telah mewakili. adapun yang di bahas disini yaitu model untuk meraih kesehatan mental itu sendiri menurut Carol Ryff. Secara teori model kesejahteraan psikologis Carol Ryff penting karena: kesejahteraan bersifat multidimensi, dan bukan hanya tentang kebahagiaan, atau emosi positif. Namun kehidupan yang baik itu seimbang dan utuh, juga melibatkan setiap aspek kesejahteraan yang berbeda, di mana tujuan hidup bukanlah hanya perasaan yang baik melainkan juga tentang hidup yang baik. Tanpa panjang lebar disini ada beberapa cara untuk membentuk individu agar dapat sehat secara mental.</p>
+
+<h1 id="enam-kategori-kesejahteraan-carol-ryff">Enam kategori kesejahteraan Carol Ryff:</h1>
+<h1 id="1-penerimaan-diri-self-acceptance">1) Penerimaan Diri (Self-Acceptance):</h1>
+<p>High Self Acceptance : Anda memiliki sikap positif terhadap diri sendiri; mengakui dan menerima berbagai aspek diri Anda termasuk kualitas positif dan negatif; dan merasa positif tentang kehidupan masa lalu Anda.</p>
+
+<p>Low Self Acceptance: Anda merasa tidak puas dengan diri sendiri; kecewa dengan apa yang terjadi di kehidupan sebelumnya; bermasalah dengan kualitas pribadi tertentu; dan ingin menjadi berbeda dari dirimu yang sebenarnya.</p>
+
+<h1 id="2-pertumbuhan-pribadi-personal-growth-">2) Pertumbuhan Pribadi (Personal Growth) :</h1>
+<p>Strong Personal Growth: Anda memiliki perasaan perkembangan yang berkelanjutan; lihat diri Anda tumbuh dan berkembang; terbuka untuk pengalaman baru; memiliki rasa menyadari potensi Anda; lihat peningkatan dalam diri Anda dan perilaku dari waktu ke waktu; berubah dengan cara yang lebih mencerminkan pengetahuan diri dan keefektifan.</p>
+
+<p>Weak Personal Growth: Anda merasakan stagnasi pribadi; kurangnya rasa perbaikan atau perluasan dari waktu ke waktu; merasa bosan dan tidak tertarik dengan hidup; dan merasa tidak mampu mengembangkan sikap atau perilaku baru.</p>
+
+<h1 id="3-tujuan-hidup-purpose-in-life-">3) Tujuan Hidup (Purpose in Life) :</h1>
+<p>Strong Purpose in Life: Anda memiliki tujuan dalam hidup dan rasa terarah; merasa ada makna bagi kehidupan Anda saat ini dan masa lalu; memegang keyakinan yang memberi tujuan hidup; dan memiliki maksud dan tujuan untuk hidup.</p>
+
+<p>Weak Purpose in Life: Anda tidak memiliki rasa makna dalam hidup; memiliki sedikit tujuan atau sasaran, kurang memiliki arah; jangan melihat tujuan dari kehidupan lampau Anda; dan tidak memiliki pandangan atau keyakinan yang memberi makna pada hidup.</p>
+
+<h1 id="4-hubungan-positif-dengan-orang-lain-positive-relations-with-others-">4) Hubungan Positif Dengan Orang Lain (Positive Relations With Others) :</h1>
+<p>Strong Positive Relations: Anda memiliki hubungan yang hangat, memuaskan, dan penuh kepercayaan dengan orang lain; peduli tentang kesejahteraan orang lain; mampu memiliki empati, kasih sayang, dan keintiman yang kuat; dan memahami memberi dan menerima hubungan manusia.</p>
+
+<p>Weak Relations: Anda memiliki sedikit hubungan yang dekat dan dapat dipercaya dengan orang lain; merasa sulit untuk menjadi hangat, terbuka, dan peduli tentang orang lain; terisolasi dan frustrasi dalam hubungan interpersonal; dan tidak mau berkompromi untuk mempertahankan hubungan penting dengan orang lain.</p>
+
+<h1 id="5-penguasaan-lingkungan-environmental-mastery-">5) Penguasaan Lingkungan (Environmental Mastery) :</h1>
+<p>High Environmental Mastery: Anda memiliki rasa penguasaan dan kompetensi dalam mengelola lingkungan; mengontrol berbagai aktivitas eksternal yang kompleks; memanfaatkan peluang di sekitarnya secara efektif; dan mampu memilih atau menciptakan konteks yang sesuai dengan kebutuhan dan nilai pribadi Anda.</p>
+
+<p>Low Environmental Mastery: Anda mengalami kesulitan mengelola urusan sehari-hari; merasa tidak dapat mengubah atau meningkatkan konteks sekitarnya; tidak menyadari peluang di sekitarnya; dan kurangnya rasa kendali atas dunia luar.</p>
+
+<h1 id="6-otonomi-autonomy-">6) Otonomi (Autonomy) :</h1>
+<p>High Autonomy: Anda menentukan nasib sendiri dan mandiri; mampu menahan tekanan sosial untuk berpikir dan bertindak dengan cara tertentu; mengatur perilaku dari dalam; dan evaluasi diri Anda dengan standar pribadi.</p>
+
+<p>Low Autonomy: Anda prihatin tentang harapan dan evaluasi orang lain; mengandalkan penilaian orang lain untuk membuat keputusan penting; dan menyesuaikan diri dengan tekanan sosial untuk berpikir dan bertindak dengan cara tertentu.</p>
+
+<p>itu adalah 6 aspek untuk menuju kesehatan mental menurut Carol Ryff yang saya dapatkan dari sumber berikut :</p>
+
+<p>https://livingmeanings.com/six-criteria-well-ryffs-multidimensional-model/
+https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response</p>
+
+<p>Semoga bermanfaat :-D</p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="Psikologis" /><summary type="html"><![CDATA[perlu diketahui gak banyak orang yang sadar akan kesehatan mental, bahkan terkadang ada juga yang menganggap bahwa kesehatan itu hanya ada dalam faktor fisik yang terlihat dalam diri mereka. Sebenarnya kesehatan itu bukan hanya soal fisik, melainkan juga soal mental...]]></summary></entry></feed>

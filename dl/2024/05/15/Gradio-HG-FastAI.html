@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face | Wahyu Pebrianto</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face" />
+<meta name="author" content="Wahyu Pebrianto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi." />
+<meta property="og:description" content="Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi." />
+<link rel="canonical" href="https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html" />
+<meta property="og:url" content="https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html" />
+<meta property="og:site_name" content="Wahyu Pebrianto" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-15T20:26:00+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Wahyu Pebrianto"},"dateModified":"2024-05-15T20:26:00+07:00","datePublished":"2024-05-15T20:26:00+07:00","description":"Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.","headline":"Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face","mainEntityOfPage":{"@type":"WebPage","@id":"https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html"},"url":"https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://wahyu.pebrianto.github.io/feed.xml" title="Wahyu Pebrianto" /></head>
+
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Wahyu Pebrianto</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/">Home</a><a class="page-link" href="/courses/">Teaching</a><a class="page-link" href="/publications/">Publications</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-05-15T20:26:00+07:00" itemprop="datePublished">May 15, 2024
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Wahyu Pebrianto</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="introduction">Introduction</h1>
+<p>Tujuan utama blog ini yaitu memberi anda panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.</p>
+
+<p>Dalam panduan singkat ini, Anda akan menerapkan deep learning pada contoh tugas computer vision: image classification/recognition.
+Anda akan memanfaatkan data yang telah dikumpulkan oleh para peneliti yang biasanya mereka sediakan secara online untuk tujuan pengembangan di bidang penelitian.
+Dalam hal ini anda akan menggunakan data The Oxford-IIIT Pet sebanyak 7.349 kumpulan data gambar pada 37 kategori hewan peliharaan dengan sekitar 200 gambar untuk setiap kelas, yang berasal dari hasil riset universitas Oxford <a href="https://www.robots.ox.ac.uk/~vgg/data/pets/">[1]</a>.
+Dalam segi Model, Anda akan memanfaatkan pre-trained model ResNet-50 <a href="https://ieeexplore.ieee.org/document/7780459">[2]</a> yang telah dilatih dengan data skala besar ImageNet <a href="https://ieeexplore.ieee.org/document/5206848">[3]</a> dan kita lakukan fine-tuning ke data Oxford-IIIT Pet. Untuk Interface, Anda akan menggunakan web sebagai user interface dengan memanfaatkan gradio <a href="https://www.gradio.app/">[4]</a>. Sementara untuk proses deployment, Anda akan memanfaatkan Hugging face <a href="https://huggingface.co/">[5]</a>.</p>
+
+<p><strong>Catatan:</strong> di blog ini saya tidak menjelaskan hal-hal fundamental penggunaan teknologi (Contoh: Git, Jupyter notebook, installasi package/kerangka kerja, dsb), juga teori dasar Deep Learning.</p>
+
+<p>Berikut outline blog ini:</p>
+<ol>
+  <li>Apa itu fastAI?</li>
+  <li>Apa itu Hugging Face?</li>
+  <li>Proses Systematic:
+    <ul>
+      <li>Mulai dengan melatih model deep learning (Image Recognition) dengan FastAI,</li>
+      <li>Mari kita mempersiapkan gradio,</li>
+      <li>Mari kita melakukan deployment model kita ke produksi dengan memanfaatkan Hugging Space</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="apa-itu-fastai">Apa itu FastAI?</h1>
+<p>FastAI <a href="https://www.mdpi.com/2078-2489/11/2/108">[6]</a> adalah kerangka kerja deep learning yang bangun oleh Jeremy Howard dan Rachel Thomas untuk pendekatan praktis dalam penerapan deep learning. Kerangka kerja ini menawarkan hight-level API ke PyTorch dan menawarkan kursus pendampingan untuk membantu siswa dalam menerapkan deep learning dengan mudah. Untuk detail lengkapnya anda bisa membaca di sumber berikut <a href="https://www.mdpi.com/2078-2489/11/2/108">[6]</a>.</p>
+
+<h1 id="apa-itu-gradio">Apa itu gradio?</h1>
+<p>Gradio <a href="https://www.gradio.app/">[4]</a> adalah salah satu package python untuk membantu anda dengan cepat membuat aplikasi web untuk tujuan melakukan deploy model machine learning atau deep learning anda. Jangan kawatir !! selain bersifat open source, gradio benar-benar dapat membantu anda membuat aplikasi web dengan cepat karena fitur bawaan gradio meskipun anda tidak memiliki keterampilan dalam pemograman web.</p>
+
+<h1 id="apa-itu-hugging-face">Apa itu Hugging Face?</h1>
+<p>Namanya membuat saya tertarik :D. Hungging Face <a href="https://huggingface.co/">[5]</a>  atau secara umum dikenal sebagai HuggingSpace adalah platform tempat seorang developer juga penggemar AI  dapat membuat, menghosting, dan berbagi aplikasi machine learning/deep learning mereka dengan mudah.</p>
+
+<h1 id="proses-systematic-mulai-melatih-model-deep-learning-image-recognition-dengan-fastai">Proses Systematic: Mulai melatih model deep learning (Image Recognition) dengan FastAI</h1>
+<p>Dalam proses ini, Anda tidak perlu kawatir karena anda bisa dengan mudah menjalankannya menggunakan kerangka kerja FastAI sebagaimana jika anda mengikuti kode berikut:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">path</span> <span class="o">=</span> <span class="nf">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="p">.</span><span class="n">PETS</span><span class="p">)</span>
+<span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="p">.</span><span class="nf">from_name_re</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nf">get_image_files</span><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="sh">'</span><span class="s">images</span><span class="sh">'</span><span class="p">),</span>
+    <span class="n">pat</span><span class="o">=</span><span class="sh">'</span><span class="s">(.+)_\d+.jpg</span><span class="sh">'</span><span class="p">,</span> <span class="n">item_tfms</span><span class="o">=</span><span class="nc">Resize</span><span class="p">(</span><span class="mi">460</span><span class="p">),</span> 
+    <span class="n">batch_tfms</span><span class="o">=</span><span class="nf">aug_transforms</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">min_scale</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">learn</span> <span class="o">=</span> <span class="nf">vision_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">models</span><span class="p">.</span><span class="n">resnet50</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
+<span class="n">learn</span><span class="p">.</span><span class="nf">fine_tune</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">learn</span><span class="p">.</span><span class="n">path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="sh">'</span><span class="s">.</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">learn</span><span class="p">.</span><span class="nf">export</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Penjelasan singkat kode di atas:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">from fastai.vision.all import *</code>: ini memberi anda akses ke semua kelas yang anda perlukan untuk membuat model computer vision yang disediakan oleh FastAI.</li>
+  <li><code class="language-plaintext highlighter-rouge">path = untar_data(URLs.PETS)</code>: melakukan download kumpulan data dari koleksi data fast.ai (jika belum diunduh sebelumnya) ke server Anda, mengekstraknya (jika belum diekstraksi sebelumnya), dan mengembalikan Path objek dengan lokasi yang diekstraksi.</li>
+  <li><code class="language-plaintext highlighter-rouge">dls</code>: Merupakan dataLoader anda (didalamnya terdiri dari lokasi data gambar &amp; label, fungsi transform yang berisi script yang diterapkan secara otomatis selama proses training).</li>
+  <li><code class="language-plaintext highlighter-rouge">learn</code>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">vision_learner</code>: fungsi untuk memanggil kelas, yang mana vision_learner juga memiliki parameter pretrained, yang defaultnya adalah True. catatan: Saat menggunakan model yang telah dilatih sebelumnya (pretrained model), vision_learner akan menghapus lapisan terakhir, karena lapisan tersebut selalu disesuaikan secara khusus dengan tugas pelatihan asli (yaitu klasifikasi kumpulan data ImageNet), dan menggantinya dengan satu atau lebih lapisan baru dengan bobot yang random, dengan ukuran yang sesuai untuk kumpulan data Anda saat ini yang kita kenal dengan teknik transfer learning.
+        <blockquote>
+          <p>Catatan singkat: (Transfer Learning: Menggunakan model yang telah dilatih sebelumnya untuk tugas yang berbeda dengan model yang telah dilatih sebelumnya.).</p>
+        </blockquote>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">dls</code>: data apa yang ingin kita latih.</li>
+          <li><code class="language-plaintext highlighter-rouge">resnet50</code>: kita memberi tahu kearngka kerja untuk membuat Convolutional Neural Network (CNN) dan menentukan arsitektur apa yang akan digunakan (yaitu jenis model apa yang akan dibuat, disini anda menggunakan arsitektur Resnet 50 lapisan).</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">metrics=accuracy</code>: ini memberitahu metrics apa yang akan digunakan.
+        <blockquote>
+          <p>Catatan singkat: Metrics adalah fungsi yang mengukur kualitas prediksi model menggunakan data set validasi, dan akan ditampilkan pada akhir setiap epoch.</p>
+        </blockquote>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">learn.fine-tuning(1)</code>: kita memberi tahu kerangka kerja cara menyesuaikan model, kita menggunakan fine_tune bukan fit karena kita memanfaatkan model yang telah dilatih sebelumnya. (1) artinya kita melatih model sebanyak satu epoch.
+        <blockquote>
+          <p>Catatan singkat: (Fine-tuning: Teknik Transfer Learning di mana parameter model yang telah dilatih sebelumnya diperbarui dengan pelatihan untuk periode tambahan menggunakan tugas yang berbeda dengan yang digunakan untuk pra-pelatihan).</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">learn.path = Path('.')</code> dan <code class="language-plaintext highlighter-rouge">learn.export()</code>: mengatur lokasi dan menyimpan model yang telah dilatih.</li>
+</ul>
+
+<h1 id="mari-kita-mulai-mempersiapkan-gradio">Mari kita mulai mempersiapkan Gradio</h1>
+<p><strong>Langkah pertama</strong>: Load model yang telah dilatih dan buat fungsi untuk prediksi.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">learn</span> <span class="o">=</span> <span class="nf">load_learner</span><span class="p">(</span><span class="sh">'</span><span class="s">export.pkl</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="n">dls</span><span class="p">.</span><span class="n">vocab</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">PILImage</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">pred</span><span class="p">,</span><span class="n">pred_idx</span><span class="p">,</span><span class="n">probs</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="nf">float</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))}</span>
+</code></pre></div></div>
+
+<p><strong>Langkah kedua</strong>: Anda persiapkan Gradio untuk interface web dengan mengikuti kode dibawah dan jalankan di lokal komputer anda.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">gradio</span> <span class="k">as</span> <span class="n">gr</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">pil</span><span class="sh">"</span><span class="p">)</span><span class="c1">#gr.inputs.Image(shape=(192, 192))
+</span><span class="n">label</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Label</span><span class="p">(</span><span class="n">num_top_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="c1">#gr.outputs.Label()
+</span><span class="n">gr</span><span class="p">.</span><span class="nc">Interface</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">label</span><span class="p">).</span><span class="nf">launch</span><span class="p">(</span><span class="n">share</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Dalam hal ini Saya menggunakan Jupyter Lab, berikut tangkapan layar hasil setelah saya menjalankan di komputer lokal saya.</p>
+
+<p><img src="/assets/images/blog-1/localgradio.jpg" alt="Localgradio" /></p>
+
+<h1 id="mari-kita-mulai-melakukan-deployment-model-ke-hugging-face">Mari kita mulai melakukan deployment model ke Hugging Face</h1>
+
+<p>Langkah anda untuk Deploy model ke Hugging face:</p>
+<ul>
+  <li>Langkah Pertama: anda perlu membuat akun di <a href="https://huggingface.co/">[5]</a>.</li>
+  <li>Langkah kedua: Setelah akun dibuat, silahkan login kemudian anda dapat membuat new space:</li>
+</ul>
+
+<p><img src="/assets/images/blog-1/newspace.png" alt="spacegradio" /></p>
+
+<ul>
+  <li>Langkah Ketiga: Clone repository space yang dibuat (kita remote melalui directory lokal komputer) dengan menjalankan <code class="language-plaintext highlighter-rouge">git clone https://huggingface.co/spaces/WahyuLab/recognize</code></li>
+  <li>Langkah Keempat: Setelah di Clone, silahkan tambahkan <code class="language-plaintext highlighter-rouge">4 file</code> di dalam direktori yang telah di clone: <code class="language-plaintext highlighter-rouge">app.py, requirements.txt, export.pkl, dan cat.jpg</code>:</li>
+</ul>
+
+<p>Berikut untuk detail isi filenya:
+File app.py:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">gradio</span> <span class="k">as</span> <span class="n">gr</span>
+<span class="kn">from</span> <span class="n">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="n">skimage</span>
+
+<span class="n">learn</span> <span class="o">=</span> <span class="nf">load_learner</span><span class="p">(</span><span class="sh">'</span><span class="s">export.pkl</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="n">dls</span><span class="p">.</span><span class="n">vocab</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">PILImage</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">pred</span><span class="p">,</span><span class="n">pred_idx</span><span class="p">,</span><span class="n">probs</span> <span class="o">=</span> <span class="n">learn</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="nf">float</span><span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))}</span>
+
+<span class="n">title</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Pengenalan Ras Hewan Peliharaan Kucing dan Anjing</span><span class="sh">"</span>
+<span class="n">description</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Selamat Datang di Aplikasi Pengklasifikasi ras Hewan Peliharaan yang di training pada kumpulan data Oxford Pets dengan Fastai :D</span><span class="sh">"</span>
+<span class="n">article</span><span class="o">=</span><span class="sh">"</span><span class="s">&lt;p style=</span><span class="sh">'</span><span class="s">text-align: center</span><span class="sh">'</span><span class="s">&gt;&lt;a href=</span><span class="sh">'</span><span class="s">https://wahyupebrianto.github.io/dl/2024/04/15/Gradio-HG-FastAI.html</span><span class="sh">'</span><span class="s"> target=</span><span class="sh">'</span><span class="s">_blank</span><span class="sh">'</span><span class="s">&gt;Blog post&lt;/a&gt;&lt;/p&gt;</span><span class="sh">"</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">cat.jpg</span><span class="sh">'</span><span class="p">]</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="sh">"</span><span class="s">pil</span><span class="sh">"</span><span class="p">)</span><span class="c1">#gr.inputs.Image(shape=(192, 192))
+</span><span class="n">label</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="nc">Label</span><span class="p">(</span><span class="n">num_top_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="c1">#gr.outputs.Label()
+</span>
+<span class="n">gr</span><span class="p">.</span><span class="nc">Interface</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span><span class="n">inputs</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+             <span class="n">outputs</span><span class="o">=</span><span class="n">label</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+             <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span><span class="n">article</span><span class="o">=</span><span class="n">article</span><span class="p">,</span><span class="n">examples</span><span class="o">=</span><span class="n">examples</span><span class="p">).</span><span class="nf">launch</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>File requirement.txt:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fastai</span>
+<span class="n">scikit</span><span class="o">-</span><span class="n">image</span>
+</code></pre></div></div>
+<p>Kemudian silahkan tambahkan File export.pkl dan satu contoh gambar dengan nama cat.jpg</p>
+
+<ul>
+  <li>Langkah Kelima: Push ke-empat file ke repository gradio:
+<img src="/assets/images/blog-1/file.png" alt="spacegradio" />
+    <blockquote>
+      <p>Catatan: File model export.pkl terlalu besar untuk ditangani oleh git. Jadi anda perlu menggunakan git-lfs (harus Anda instal terlebih dahulu). Disini saya menggunakan WSL dalam proses installasinya dengan menjalankan apt-get install git-lfs. Setelah anda berhasil melakukan installasi silahkan push ke direktori hingga muncul seperti gambar di atas pada huggingspace dengan menjalankan command berikut:</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Langkah pertama:
+</span><span class="n">git</span> <span class="n">lfs</span> <span class="n">install</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">track</span> <span class="sh">"</span><span class="s">*.pkl</span><span class="sh">"</span>
+<span class="n">git</span> <span class="n">add</span> <span class="p">.</span><span class="n">gitattributes</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="sh">"</span><span class="s">update .gitattributes jadi git lfs akan melacak .pkl files</span><span class="sh">"</span>
+<span class="c1">#Langkah kedua push ke Space:
+</span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">am</span> <span class="sh">"</span><span class="s">mari kita terapkan ke huggingface spaces</span><span class="sh">"</span>
+<span class="n">git</span> <span class="n">push</span>
+</code></pre></div></div>
+<p>Setelah proses di atas Anda ikuti, Anda dapat menunggu huggingspaces melakukan build, Anda dapat memeriksanya di bagian logs (tunggu hingga status  menjadi running).</p>
+
+<p><img src="/assets/images/blog-1/running.png" alt="spacegradio" /></p>
+
+<p>Hasil Deployment model deep leaning: Anda dapat memerika hasilnya, Jika berhasil, dan berikut contoh tangkapan layar implementasinya:</p>
+
+<p><img src="/assets/images/blog-1/deployment1.png" alt="spacegradio" /></p>
+
+<p><img src="/assets/images/blog-1/deployment2.png" alt="spacegradio" /></p>
+
+<p>Hasil dari blog ini anda dapat memeriksanya dengan mengikuti link <a href="https://huggingface.co/spaces/WahyuLab/recognize">ini</a></p>
+
+  </div>
+
+
+<div id="comments" style="margin-top: 3rem;">
+  <script src="https://utteranc.es/client.js"
+          repo="your-username/blog-comments"
+          issue-term="pathname"
+          label="💬 comment"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+
+  <a class="u-url" href="/dl/2024/05/15/Gradio-HG-FastAI.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Wahyu Pebrianto</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Wahyu Pebrianto</li><li><a class="u-email" href="mailto:wahyu.pebrianto1@gmail.com">wahyu.pebrianto1@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/wahyupebrianto"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">wahyupebrianto</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Dosen | Peneliti | AI | DL | ML | CV | GenAI.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

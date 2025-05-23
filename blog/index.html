@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blog | Wahyu Pebrianto</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Dosen Peneliti AI DL ML CV GenAI." />
+<meta property="og:description" content="Dosen Peneliti AI DL ML CV GenAI." />
+<link rel="canonical" href="https://wahyu.pebrianto.github.io/blog/" />
+<meta property="og:url" content="https://wahyu.pebrianto.github.io/blog/" />
+<meta property="og:site_name" content="Wahyu Pebrianto" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Dosen Peneliti AI DL ML CV GenAI.","headline":"Blog","url":"https://wahyu.pebrianto.github.io/blog/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://wahyu.pebrianto.github.io/feed.xml" title="Wahyu Pebrianto" /></head>
+
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Wahyu Pebrianto</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/">Home</a><a class="page-link" href="/courses/">Teaching</a><a class="page-link" href="/publications/">Publications</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1>Blog</h1>
+
+<div style="margin-bottom: 1em;">
+  <label for="category-filter"><strong>Kategori:</strong></label>
+  <select id="category-filter" onchange="filterPosts()">
+    <option value="all">Semua</option>
+    
+    
+      
+        <option value="AI">AI</option>
+      
+    
+      
+        <option value="DL">DL</option>
+      
+    
+      
+        <option value="Psikologis">Psikologis</option>
+      
+    
+      
+        <option value="Teaching">Teaching</option>
+      
+    
+  </select>
+
+  <label for="year-filter" style="margin-left: 1em;"><strong>Tahun:</strong></label>
+  <select id="year-filter" onchange="filterPosts()">
+    <option value="all">Semua</option>
+    
+    
+    
+      
+      
+        <option value="2025">2025</option>
+        
+      
+    
+      
+      
+        <option value="2024">2024</option>
+        
+      
+    
+      
+      
+        <option value="2023">2023</option>
+        
+      
+    
+  </select>
+</div>
+
+<script>
+function filterPosts() {
+  const cat = document.getElementById('category-filter').value;
+  const year = document.getElementById('year-filter').value;
+  const posts = document.querySelectorAll('.post-item');
+
+  posts.forEach(post => {
+    const postCat = post.getAttribute('data-category');
+    const postYear = post.getAttribute('data-year');
+
+    const matchCat = (cat === 'all' || postCat.includes(cat));
+    const matchYear = (year === 'all' || postYear === year);
+
+    post.style.display = (matchCat && matchYear) ? '' : 'none';
+  });
+}
+</script>
+
+
+<ul class="post-list">
+  
+    <li class="post-item"
+        data-category="AI,Teaching"
+        data-year="2025">
+      <h2><a href="/ai/teaching/2025/05/22/contoh-post.html">Contoh Post Blog</a></h2>
+      <p><small>May 22, 2025 — AI, Teaching</small></p>
+      <p>Ini adalah ringkasan atau kutipan dari blog post ini...</p>
+    </li>
+  
+    <li class="post-item"
+        data-category="DL"
+        data-year="2024">
+      <h2><a href="/dl/2024/05/15/Gradio-HG-FastAI.html">Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face</a></h2>
+      <p><small>May 15, 2024 — DL</small></p>
+      <p>Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.</p>
+    </li>
+  
+    <li class="post-item"
+        data-category="Psikologis"
+        data-year="2023">
+      <h2><a href="/psikologis/2023/04/21/Model-Psychological-Well.html">Model Enam Faktor dari Kesejahteraan Psikologis (Six-factor Model of Psychological Well-being)</a></h2>
+      <p><small>April 21, 2023 — Psikologis</small></p>
+      <p>perlu diketahui gak banyak orang yang sadar akan kesehatan mental, bahkan terkadang ada juga yang menganggap bahwa kesehatan itu hanya ada dalam faktor fisik yang terlihat dalam diri mereka. Sebenarnya kesehatan itu bukan hanya soal fisik, melainkan juga soal mental...</p>
+    </li>
+  
+</ul>
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Wahyu Pebrianto</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Wahyu Pebrianto</li><li><a class="u-email" href="mailto:wahyu.pebrianto1@gmail.com">wahyu.pebrianto1@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/wahyupebrianto"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">wahyupebrianto</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Dosen | Peneliti | AI | DL | ML | CV | GenAI.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek | Wahyu Pebrianto</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek" />
+<meta name="author" content="Wahyu Pebrianto" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR-10, beserta karakteristik dan perannya dalam penelitian computer vision." />
+<meta property="og:description" content="Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR-10, beserta karakteristik dan perannya dalam penelitian computer vision." />
+<link rel="canonical" href="https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset.html" />
+<meta property="og:url" content="https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset.html" />
+<meta property="og:site_name" content="Wahyu Pebrianto" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-15T00:00:00+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Wahyu Pebrianto"},"dateModified":"2022-11-15T00:00:00+07:00","datePublished":"2022-11-15T00:00:00+07:00","description":"Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR-10, beserta karakteristik dan perannya dalam penelitian computer vision.","headline":"Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek","mainEntityOfPage":{"@type":"WebPage","@id":"https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset.html"},"url":"https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://wahyu.pebrianto.github.io/feed.xml" title="Wahyu Pebrianto" /></head>
+
+<link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Wahyu Pebrianto</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Blog</a><a class="page-link" href="/about/"></a><a class="page-link" href="/courses/">Teaching</a><a class="page-link" href="/publications/">Publications</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-11-15T00:00:00+07:00" itemprop="datePublished">Nov 15, 2022
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Wahyu Pebrianto</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="1-background">1. Background</h2>
+
+<p><em>Object recognition</em> dan <em>object detection</em> merupakan dua permasalahan fundamental dalam bidang <em>computer vision</em>. <em>Object recognition</em> bertujuan untuk menentukan apakah suatu objek dalam citra termasuk ke dalam <em>class</em> tertentu, sedangkan <em>object detection</em> tidak hanya mengklasifikasikan objek, tetapi juga menentukan lokasi objek tersebut di dalam citra. Lokasi objek umumnya direpresentasikan dalam bentuk <em>bounding box</em>.</p>
+
+<p>Penggunaan dataset yang menantang sebagai <em>benchmark</em> memiliki peran yang sangat penting dalam penelitian <em>computer vision</em>. Dataset benchmark memungkinkan adanya perbandingan yang adil dan terstandarisasi antara berbagai algoritma, sekaligus menetapkan target performa yang jelas bagi metode-metode baru <a href="#ref-1">[1]</a>. Tanpa adanya dataset benchmark yang disepakati bersama, evaluasi kinerja suatu metode akan sulit direproduksi dan kurang bermakna secara ilmiah.</p>
+
+<p>Dalam beberapa dekade terakhir, dataset umum (<em>general-purpose datasets</em>) untuk <em>object detection</em> seperti <strong>PASCAL VOC</strong>, <strong>MS COCO</strong>, dan <strong>ImageNet</strong> telah menjadi arus utama (<em>mainstream</em>) dalam penelitian <em>object detection</em> dan <em>object recognition</em>. Dataset-dataset ini tidak hanya menyediakan jumlah citra yang besar, tetapi juga anotasi yang kaya dan beragam, sehingga mampu merepresentasikan kompleksitas dunia nyata secara lebih baik.</p>
+
+<p><img src="/assets/images/localization_dan_recognition.png" alt="Ilustrasi localization dan recognition" /></p>
+
+<blockquote>
+  <p><strong>Gambar 1.</strong> Ilustrasi <em>localization</em> dan <em>recognition</em> objek menggunakan <em>bounding box</em>.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="2-dataset">2. Dataset</h2>
+
+<h3 id="a-pascal-visual-object-classes-voc">A. PASCAL Visual Object Classes (VOC)</h3>
+
+<p><strong>Background</strong>
+PASCAL Visual Object Classes (VOC) dataset merupakan salah satu dataset benchmark paling awal dan paling berpengaruh dalam penelitian <em>object detection</em> dan <em>object recognition</em>. Dataset ini dikembangkan melalui serangkaian tantangan (<em>challenges</em>) yang diselenggarakan secara tahunan dari tahun 2005 hingga 2012 <a href="#ref-1">[1]</a>.</p>
+
+<ul>
+  <li><strong>VOC 2005</strong>: memperkenalkan 4 <em>object classes</em> dan menjadi fondasi awal tantangan PASCAL.</li>
+  <li><strong>VOC 2007</strong>: salah satu versi yang paling banyak digunakan sebagai benchmark standar, dengan sekitar 5.000 citra untuk <em>training</em> dan lebih dari 12.000 objek beranotasi.</li>
+  <li><strong>VOC 2012</strong>: versi terakhir, dengan sekitar 11.000 citra <em>training</em> dan lebih dari 27.000 objek beranotasi.</li>
+</ul>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+  <li>Object detection</li>
+  <li>Semantic segmentation</li>
+</ul>
+
+<p><strong>Classes</strong>
+Dataset ini terdiri dari <strong>20 object categories</strong>.</p>
+
+<p><strong>Pembagian Dataset (VOC 2007)</strong></p>
+
+<ul>
+  <li><strong>Train</strong>: 2.501 citra, 6.301 objek</li>
+  <li><strong>Validation</strong>: 2.510 citra, 6.307 objek</li>
+  <li><strong>Train-val</strong>: 5.011 citra, 12.608 objek</li>
+  <li><strong>Test</strong>: 4.952 citra, 12.032 objek</li>
+</ul>
+
+<p><img src="/assets/images/dataset_VOC_2007.png" alt="Contoh dataset VOC2007" /></p>
+
+<blockquote>
+  <p><strong>Gambar 2.</strong> Contoh anotasi dataset VOC 2007 untuk masing-masing dari 20 <em>class</em>.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="b-ms-coco-dataset">B. MS COCO Dataset</h3>
+
+<p><strong>Background</strong>
+Microsoft Common Objects in Context (MS COCO) dataset dirancang untuk mendeteksi dan melakukan segmentasi objek-objek yang sering dijumpai dalam kehidupan sehari-hari, dengan konteks lingkungan yang alami (<em>in context</em>) <a href="#ref-2">[2]</a>. Dataset ini menargetkan skenario dunia nyata dengan banyak objek kecil, tumpang tindih (<em>overlapping</em>), dan latar belakang yang kompleks.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Object detection</li>
+  <li>Instance segmentation</li>
+  <li>Keypoint detection</li>
+  <li>Image captioning</li>
+</ul>
+
+<p><strong>Classes</strong>
+Dataset ini mencakup <strong>80 object categories</strong>.</p>
+
+<p><strong>Jumlah Data</strong>
+Total dataset MS COCO terdiri dari sekitar <strong>328.000 citra</strong>.</p>
+
+<p><strong>Detail Rilis Dataset</strong></p>
+
+<ul>
+  <li><strong>COCO 2014</strong>: Training 82.783, Validation 40.504, Test 40.775</li>
+  <li><strong>COCO 2015</strong>: Training 165.482, Validation 81.208, Test 81.434</li>
+</ul>
+
+<p><img src="/assets/images/MS_COCO_dataset.png" alt="Contoh dataset MS COCO" /></p>
+
+<blockquote>
+  <p><strong>Gambar 3.</strong> Contoh citra dan anotasi pada MS COCO dataset.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="c-imagenet-dataset">C. ImageNet Dataset</h3>
+
+<p><strong>Background</strong>
+ImageNet merupakan dataset berskala sangat besar yang dirancang untuk mendorong kemajuan dalam <em>visual recognition</em> melalui <strong>ImageNet Large Scale Visual Recognition Challenge (ILSVRC)</strong> <a href="#ref-3">[3]</a>. Dataset ini disusun berdasarkan struktur <em>WordNet</em> dan mencakup ribuan <em>object categories</em>.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+  <li>Object localization</li>
+</ul>
+
+<p><strong>Classes</strong></p>
+
+<ul>
+  <li>Lebih dari <strong>20.000 categories</strong> secara keseluruhan</li>
+  <li><strong>1.000 object classes</strong> pada subset ILSVRC</li>
+</ul>
+
+<p><strong>Detail Dataset</strong></p>
+
+<ul>
+  <li>±1,2 juta citra <em>training</em></li>
+  <li>50.000 citra <em>validation</em></li>
+  <li>100.000 citra <em>test</em></li>
+</ul>
+
+<p>ImageNet berperan penting dalam mendorong perkembangan <em>deep learning</em>, khususnya <em>convolutional neural networks (CNN)</em>, dan sering digunakan sebagai dataset <em>pretraining</em>.</p>
+
+<hr />
+
+<h3 id="d-open-images-dataset">D. Open Images Dataset</h3>
+
+<p><strong>Background</strong>
+Open Images Dataset dikembangkan oleh Google untuk menyediakan dataset berskala besar dengan anotasi yang kaya, mencakup <em>image-level labels</em>, <em>bounding boxes</em>, dan <em>visual relationships</em> <a href="#ref-4">[4]</a>.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+  <li>Object detection</li>
+  <li>Visual relationship detection</li>
+</ul>
+
+<p><strong>Classes</strong></p>
+
+<ul>
+  <li>Lebih dari <strong>600 object classes</strong> untuk <em>object detection</em></li>
+</ul>
+
+<p><strong>Detail Dataset</strong>
+Dataset ini mencakup jutaan citra dengan anotasi <em>bounding box</em> dalam jumlah yang sangat besar, sehingga sangat relevan untuk riset <em>object detection</em> skala besar.</p>
+
+<hr />
+
+<h3 id="e-cifar-10-dataset">E. CIFAR-10 Dataset</h3>
+
+<p><strong>Background</strong>
+CIFAR-10 merupakan dataset klasik yang banyak digunakan dalam penelitian awal <em>image classification</em> <a href="#ref-5">[5]</a>. Dataset ini sering dijadikan baseline untuk evaluasi arsitektur dan algoritma baru.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+</ul>
+
+<p><strong>Classes</strong></p>
+
+<ul>
+  <li><strong>10 object classes</strong></li>
+</ul>
+
+<p><strong>Detail Dataset</strong></p>
+
+<ul>
+  <li>Total 60.000 citra berwarna</li>
+  <li>Ukuran citra: 32 × 32 piksel</li>
+  <li>Training: 50.000 citra</li>
+  <li>Test: 10.000 citra</li>
+</ul>
+
+<hr />
+
+<h2 id="3-penutup">3. Penutup</h2>
+
+<p>Dataset benchmark memainkan peran krusial dalam perkembangan riset <em>object recognition</em> dan <em>object detection</em>. PASCAL VOC menyediakan fondasi evaluasi terstandarisasi, MS COCO menawarkan skenario dunia nyata yang kompleks, ImageNet mendorong pembelajaran representasi visual skala besar, Open Images menghadirkan anotasi yang sangat kaya, dan CIFAR-10 menjadi benchmark klasik untuk evaluasi awal. Pemilihan dataset yang tepat sangat bergantung pada tujuan riset dan kompleksitas task yang ingin diselesaikan.</p>
+
+<hr />
+
+<h2 id="referensi">Referensi</h2>
+
+<p><a id="ref-1"></a>
+<strong>[1]</strong> M. Everingham, L. Van Gool, C. K. I. Williams, J. Winn, and A. Zisserman, “The PASCAL Visual Object Classes (VOC) Challenge,” <em>International Journal of Computer Vision</em>, vol. 88, no. 2, pp. 303–338, 2010.
+[Online]. Available: <a href="https://doi.org/10.1007/s11263-009-0275-4">https://doi.org/10.1007/s11263-009-0275-4</a></p>
+
+<p><a id="ref-2"></a>
+<strong>[2]</strong> T.-Y. Lin <em>et al.</em>, “Microsoft COCO: Common Objects in Context,” in <em>Proceedings of the European Conference on Computer Vision (ECCV)</em>, 2014.
+[Online]. Available: <a href="https://doi.org/10.1007/978-3-319-10602-1_48">https://doi.org/10.1007/978-3-319-10602-1_48</a></p>
+
+<p><a id="ref-3"></a>
+<strong>[3]</strong> J. Deng <em>et al.</em>, “ImageNet: A Large-Scale Hierarchical Image Database,” in <em>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2009.
+[Online]. Available: <a href="https://doi.org/10.1109/CVPR.2009.5206848">https://doi.org/10.1109/CVPR.2009.5206848</a></p>
+
+<p><a id="ref-4"></a>
+<strong>[4]</strong> A. Kuznetsova <em>et al.</em>, “The Open Images Dataset V4: Unified Image Classification, Object Detection, and Visual Relationship Detection at Scale,” <em>International Journal of Computer Vision</em>, vol. 128, pp. 1956–1981, 2020.
+[Online]. Available: <a href="https://doi.org/10.1007/s11263-020-01316-z">https://doi.org/10.1007/s11263-020-01316-z</a></p>
+
+<p><a id="ref-5"></a>
+<strong>[5]</strong> A. Krizhevsky, “Learning Multiple Layers of Features from Tiny Images,” Technical Report, University of Toronto, 2009.
+[Online]. Available: <a href="https://www.cs.toronto.edu/~kriz/cifar.html">https://www.cs.toronto.edu/~kriz/cifar.html</a></p>
+
+  </div>
+
+
+<div id="comments" style="margin-top: 3rem;">
+  <script src="https://utteranc.es/client.js"
+          repo="your-username/blog-comments"
+          issue-term="pathname"
+          label="💬 comment"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+
+  <a class="u-url" href="/ai/2022/11/15/Popular-Dataset.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="footer-icons">
+    <a href="https://github.com/USERNAME"><i class="fab fa-github"></i></a>
+    <a href="https://scholar.google.com/..."><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://youtube.com/..."><i class="fab fa-youtube"></i></a>
+  </div>
+  <p>Wahyu Pebrianto</p>
+</footer>
+</body>
+
+</html>

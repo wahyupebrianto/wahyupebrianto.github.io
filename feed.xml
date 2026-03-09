@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://wahyu.pebrianto.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wahyu.pebrianto.github.io/" rel="alternate" type="text/html" /><updated>2026-02-12T00:45:27+07:00</updated><id>https://wahyu.pebrianto.github.io/feed.xml</id><title type="html">Wahyu Pebrianto</title><subtitle>| AI | DL | ML | CV | GenAI.</subtitle><entry><title type="html">IN THIS WORLD</title><link href="https://wahyu.pebrianto.github.io/general/2025/08/25/IN-THIS-WORLD.html" rel="alternate" type="text/html" title="IN THIS WORLD" /><published>2025-08-25T00:00:00+07:00</published><updated>2025-08-25T00:00:00+07:00</updated><id>https://wahyu.pebrianto.github.io/general/2025/08/25/IN-THIS-WORLD</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/general/2025/08/25/IN-THIS-WORLD.html"><![CDATA[<p>Mari kita jatuh cinta<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-09T22:55:02+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Wahyu Pebrianto</title><subtitle></subtitle><entry><title type="html">IN THIS WORLD</title><link href="http://localhost:4000/general/2025/08/25/IN-THIS-WORLD.html" rel="alternate" type="text/html" title="IN THIS WORLD" /><published>2025-08-25T00:00:00+07:00</published><updated>2025-08-25T00:00:00+07:00</updated><id>http://localhost:4000/general/2025/08/25/IN-THIS-WORLD</id><content type="html" xml:base="http://localhost:4000/general/2025/08/25/IN-THIS-WORLD.html"><![CDATA[<p>Mari kita jatuh cinta<br />
 Peluklah dunia yang kering ini<br />
 Bacalah tanda-tanda harapan<br />
 Dari sudut matamu<br />
@@ -20,7 +20,7 @@ Mari menenggak keputusasaan<br /></p>
 Mari kita peluk dunia yang indah ini<br />
 Mari kita lihat harapan<br /></p>
 
-<p>Terjemahan Lirik lagu dari: MONDO GROSSO / IN THIS WORLD feat.Ryuichi Sakamoto［Vocal：Hikari Mitsushima］</p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="General" /><summary type="html"><![CDATA[Mari kita jatuh cinta, Peluklah dunia yang kering ini, Bacalah tanda-tanda harapan, Dari sudut matamu, Basahi kulitmu dengan rahasia, Hangatkan kebebasanmu...]]></summary></entry><entry><title type="html">Contoh Post Blog</title><link href="https://wahyu.pebrianto.github.io/ai/teaching/2025/05/22/contoh-post.html" rel="alternate" type="text/html" title="Contoh Post Blog" /><published>2025-05-22T00:00:00+07:00</published><updated>2025-05-22T00:00:00+07:00</updated><id>https://wahyu.pebrianto.github.io/ai/teaching/2025/05/22/contoh-post</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/ai/teaching/2025/05/22/contoh-post.html"><![CDATA[<p>Isi lengkap blog…</p>]]></content><author><name></name></author><category term="AI" /><category term="Teaching" /><summary type="html"><![CDATA[Ini adalah ringkasan atau kutipan dari blog post ini...]]></summary></entry><entry><title type="html">Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face</title><link href="https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html" rel="alternate" type="text/html" title="Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face" /><published>2024-05-15T20:26:00+07:00</published><updated>2024-05-15T20:26:00+07:00</updated><id>https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/dl/2024/05/15/Gradio-HG-FastAI.html"><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>Terjemahan Lirik lagu dari: MONDO GROSSO / IN THIS WORLD feat.Ryuichi Sakamoto［Vocal：Hikari Mitsushima］</p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="General" /><summary type="html"><![CDATA[Mari kita jatuh cinta, Peluklah dunia yang kering ini, Bacalah tanda-tanda harapan, Dari sudut matamu, Basahi kulitmu dengan rahasia, Hangatkan kebebasanmu...]]></summary></entry><entry><title type="html">Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face</title><link href="http://localhost:4000/dl/2024/05/15/Gradio-HG-FastAI.html" rel="alternate" type="text/html" title="Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face" /><published>2024-05-15T20:26:00+07:00</published><updated>2024-05-15T20:26:00+07:00</updated><id>http://localhost:4000/dl/2024/05/15/Gradio-HG-FastAI</id><content type="html" xml:base="http://localhost:4000/dl/2024/05/15/Gradio-HG-FastAI.html"><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>Tujuan utama blog ini yaitu memberi anda panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.</p>
 
 <p>Dalam panduan singkat ini, Anda akan menerapkan deep learning pada contoh tugas computer vision: image classification/recognition.
@@ -119,7 +119,7 @@ Dalam segi Model, Anda akan memanfaatkan pre-trained model ResNet-50 <a href="ht
 
 <p>Dalam hal ini Saya menggunakan Jupyter Lab, berikut tangkapan layar hasil setelah saya menjalankan di komputer lokal saya.</p>
 
-<p><img src="/assets/images/blog-1/localgradio.jpg" alt="Localgradio" /></p>
+<p><img src="/assets/images/blog-1/localgradio.png" alt="Localgradio" /></p>
 
 <h1 id="mari-kita-mulai-melakukan-deployment-model-ke-hugging-face">Mari kita mulai melakukan deployment model ke Hugging Face</h1>
 
@@ -129,12 +129,15 @@ Dalam segi Model, Anda akan memanfaatkan pre-trained model ResNet-50 <a href="ht
   <li>Langkah kedua: Setelah akun dibuat, silahkan login kemudian anda dapat membuat new space:</li>
 </ul>
 
-<p><img src="/assets/images/blog-1/newspace.png" alt="spacegradio" /></p>
+<p><img src="/assets/images/blog-1/newspace.png" alt="spacegradio" />
+<img src="/assets/images/blog-1/newspace1.png" alt="spacegradio1" style="display:block; margin-left:auto; margin-right:auto" /></p>
 
 <ul>
   <li>Langkah Ketiga: Clone repository space yang dibuat (kita remote melalui directory lokal komputer) dengan menjalankan <code class="language-plaintext highlighter-rouge">git clone https://huggingface.co/spaces/WahyuLab/recognize</code></li>
   <li>Langkah Keempat: Setelah di Clone, silahkan tambahkan <code class="language-plaintext highlighter-rouge">4 file</code> di dalam direktori yang telah di clone: <code class="language-plaintext highlighter-rouge">app.py, requirements.txt, export.pkl, dan cat.jpg</code>:</li>
 </ul>
+
+<p><img src="/assets/images/blog-1/dir.png" alt="spacegradio2" style="display:block; margin-left:auto; margin-right:auto" /></p>
 
 <p>Berikut untuk detail isi filenya:
 File app.py:</p>
@@ -197,49 +200,7 @@ File app.py:</p>
 
 <p><img src="/assets/images/blog-1/deployment2.png" alt="spacegradio" /></p>
 
-<p>Hasil dari blog ini anda dapat memeriksanya dengan mengikuti link <a href="https://huggingface.co/spaces/WahyuLab/recognize">ini</a></p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="DL" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.]]></summary></entry><entry><title type="html">Model Enam Faktor dari Kesejahteraan Psikologis (Six-factor Model of Psychological Well-being)</title><link href="https://wahyu.pebrianto.github.io/psikologis/2023/04/21/Model-Psychological-Well.html" rel="alternate" type="text/html" title="Model Enam Faktor dari Kesejahteraan Psikologis (Six-factor Model of Psychological Well-being)" /><published>2023-04-21T00:00:00+07:00</published><updated>2023-04-21T00:00:00+07:00</updated><id>https://wahyu.pebrianto.github.io/psikologis/2023/04/21/Model-Psychological-Well</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/psikologis/2023/04/21/Model-Psychological-Well.html"><![CDATA[<p>Oke disini saya akan sedikit menyajikan tentang teori psikologi, yaitu tentang kesehatan mental yang dikemukakan oleh seorang professor psikologis Carol Ryff. perlu diketahui gak banyak orang yang sadar akan kesehatan mental, bahkan terkadang ada juga yang menganggap bahwa kesehatan itu hanya ada dalam faktor fisik yang terlihat dalam diri mereka. Sebenarnya kesehatan itu bukan hanya soal fisik, melainkan juga soal mental, sebelum kita masuk ke dalam pembahasan baiknya kita tau apa itu kesehatan mental:</p>
-
-<p>berdasarkan yang di tulis di situs WHO,Kesehatan mental bisa dikatakan adalah keadaan sejahtera dimana seseorang menyadari kemampuannya sendiri, dapat mengatasi tekanan hidup yang normal, dapat bekerja secara produktif dan mampu memberikan kontribusi kepada komunitasnya.</p>
-
-<p>dari penjelasan di atas adalah definisi tentang kesehatan mental yang didapatkan dari situs WHO, sebenarnya definisi dari kesehatan mental itu sangat luas namun setidaknya penjelasan di atas telah mewakili. adapun yang di bahas disini yaitu model untuk meraih kesehatan mental itu sendiri menurut Carol Ryff. Secara teori model kesejahteraan psikologis Carol Ryff penting karena: kesejahteraan bersifat multidimensi, dan bukan hanya tentang kebahagiaan, atau emosi positif. Namun kehidupan yang baik itu seimbang dan utuh, juga melibatkan setiap aspek kesejahteraan yang berbeda, di mana tujuan hidup bukanlah hanya perasaan yang baik melainkan juga tentang hidup yang baik. Tanpa panjang lebar disini ada beberapa cara untuk membentuk individu agar dapat sehat secara mental.</p>
-
-<h1 id="enam-kategori-kesejahteraan-carol-ryff">Enam kategori kesejahteraan Carol Ryff:</h1>
-<h1 id="1-penerimaan-diri-self-acceptance">1) Penerimaan Diri (Self-Acceptance):</h1>
-<p>High Self Acceptance : Anda memiliki sikap positif terhadap diri sendiri; mengakui dan menerima berbagai aspek diri Anda termasuk kualitas positif dan negatif; dan merasa positif tentang kehidupan masa lalu Anda.</p>
-
-<p>Low Self Acceptance: Anda merasa tidak puas dengan diri sendiri; kecewa dengan apa yang terjadi di kehidupan sebelumnya; bermasalah dengan kualitas pribadi tertentu; dan ingin menjadi berbeda dari dirimu yang sebenarnya.</p>
-
-<h1 id="2-pertumbuhan-pribadi-personal-growth-">2) Pertumbuhan Pribadi (Personal Growth) :</h1>
-<p>Strong Personal Growth: Anda memiliki perasaan perkembangan yang berkelanjutan; lihat diri Anda tumbuh dan berkembang; terbuka untuk pengalaman baru; memiliki rasa menyadari potensi Anda; lihat peningkatan dalam diri Anda dan perilaku dari waktu ke waktu; berubah dengan cara yang lebih mencerminkan pengetahuan diri dan keefektifan.</p>
-
-<p>Weak Personal Growth: Anda merasakan stagnasi pribadi; kurangnya rasa perbaikan atau perluasan dari waktu ke waktu; merasa bosan dan tidak tertarik dengan hidup; dan merasa tidak mampu mengembangkan sikap atau perilaku baru.</p>
-
-<h1 id="3-tujuan-hidup-purpose-in-life-">3) Tujuan Hidup (Purpose in Life) :</h1>
-<p>Strong Purpose in Life: Anda memiliki tujuan dalam hidup dan rasa terarah; merasa ada makna bagi kehidupan Anda saat ini dan masa lalu; memegang keyakinan yang memberi tujuan hidup; dan memiliki maksud dan tujuan untuk hidup.</p>
-
-<p>Weak Purpose in Life: Anda tidak memiliki rasa makna dalam hidup; memiliki sedikit tujuan atau sasaran, kurang memiliki arah; jangan melihat tujuan dari kehidupan lampau Anda; dan tidak memiliki pandangan atau keyakinan yang memberi makna pada hidup.</p>
-
-<h1 id="4-hubungan-positif-dengan-orang-lain-positive-relations-with-others-">4) Hubungan Positif Dengan Orang Lain (Positive Relations With Others) :</h1>
-<p>Strong Positive Relations: Anda memiliki hubungan yang hangat, memuaskan, dan penuh kepercayaan dengan orang lain; peduli tentang kesejahteraan orang lain; mampu memiliki empati, kasih sayang, dan keintiman yang kuat; dan memahami memberi dan menerima hubungan manusia.</p>
-
-<p>Weak Relations: Anda memiliki sedikit hubungan yang dekat dan dapat dipercaya dengan orang lain; merasa sulit untuk menjadi hangat, terbuka, dan peduli tentang orang lain; terisolasi dan frustrasi dalam hubungan interpersonal; dan tidak mau berkompromi untuk mempertahankan hubungan penting dengan orang lain.</p>
-
-<h1 id="5-penguasaan-lingkungan-environmental-mastery-">5) Penguasaan Lingkungan (Environmental Mastery) :</h1>
-<p>High Environmental Mastery: Anda memiliki rasa penguasaan dan kompetensi dalam mengelola lingkungan; mengontrol berbagai aktivitas eksternal yang kompleks; memanfaatkan peluang di sekitarnya secara efektif; dan mampu memilih atau menciptakan konteks yang sesuai dengan kebutuhan dan nilai pribadi Anda.</p>
-
-<p>Low Environmental Mastery: Anda mengalami kesulitan mengelola urusan sehari-hari; merasa tidak dapat mengubah atau meningkatkan konteks sekitarnya; tidak menyadari peluang di sekitarnya; dan kurangnya rasa kendali atas dunia luar.</p>
-
-<h1 id="6-otonomi-autonomy-">6) Otonomi (Autonomy) :</h1>
-<p>High Autonomy: Anda menentukan nasib sendiri dan mandiri; mampu menahan tekanan sosial untuk berpikir dan bertindak dengan cara tertentu; mengatur perilaku dari dalam; dan evaluasi diri Anda dengan standar pribadi.</p>
-
-<p>Low Autonomy: Anda prihatin tentang harapan dan evaluasi orang lain; mengandalkan penilaian orang lain untuk membuat keputusan penting; dan menyesuaikan diri dengan tekanan sosial untuk berpikir dan bertindak dengan cara tertentu.</p>
-
-<p>itu adalah 6 aspek untuk menuju kesehatan mental menurut Carol Ryff yang saya dapatkan dari sumber berikut :</p>
-
-<p>https://livingmeanings.com/six-criteria-well-ryffs-multidimensional-model/
-https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response</p>
-
-<p>Semoga bermanfaat :-D</p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="Psikologis" /><summary type="html"><![CDATA[perlu diketahui gak banyak orang yang sadar akan kesehatan mental, bahkan terkadang ada juga yang menganggap bahwa kesehatan itu hanya ada dalam faktor fisik yang terlihat dalam diri mereka. Sebenarnya kesehatan itu bukan hanya soal fisik, melainkan juga soal mental...]]></summary></entry><entry><title type="html">Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek</title><link href="https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset.html" rel="alternate" type="text/html" title="Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek" /><published>2022-11-15T00:00:00+07:00</published><updated>2022-11-15T00:00:00+07:00</updated><id>https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset</id><content type="html" xml:base="https://wahyu.pebrianto.github.io/ai/2022/11/15/Popular-Dataset.html"><![CDATA[<h2 id="1-background">1. Background</h2>
+<p>Hasil dari blog ini anda dapat memeriksanya dengan mengikuti link <a href="https://huggingface.co/spaces/WahyuLab/recognize">ini</a></p>]]></content><author><name>Wahyu Pebrianto</name></author><category term="DL" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.]]></summary></entry><entry><title type="html">Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek</title><link href="http://localhost:4000/ai/2022/11/15/Popular-Dataset.html" rel="alternate" type="text/html" title="Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek" /><published>2022-11-15T00:00:00+07:00</published><updated>2022-11-15T00:00:00+07:00</updated><id>http://localhost:4000/ai/2022/11/15/Popular-Dataset</id><content type="html" xml:base="http://localhost:4000/ai/2022/11/15/Popular-Dataset.html"><![CDATA[<h2 id="1-background">1. Background</h2>
 
 <p><em>Object recognition</em> dan <em>object detection</em> merupakan dua permasalahan fundamental dalam bidang <em>computer vision</em>. <em>Object recognition</em> bertujuan untuk menentukan apakah suatu objek dalam citra termasuk ke dalam <em>class</em> tertentu, sedangkan <em>object detection</em> tidak hanya mengklasifikasikan objek, tetapi juga menentukan lokasi objek tersebut di dalam citra. Lokasi objek umumnya direpresentasikan dalam bentuk <em>bounding box</em>.</p>
 
@@ -247,7 +208,7 @@ https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our
 
 <p>Dalam beberapa dekade terakhir, dataset umum (<em>general-purpose datasets</em>) untuk <em>object detection</em> seperti <strong>PASCAL VOC</strong>, <strong>MS COCO</strong>, dan <strong>ImageNet</strong> telah menjadi arus utama (<em>mainstream</em>) dalam penelitian <em>object detection</em> dan <em>object recognition</em>. Dataset-dataset ini tidak hanya menyediakan jumlah citra yang besar, tetapi juga anotasi yang kaya dan beragam, sehingga mampu merepresentasikan kompleksitas dunia nyata secara lebih baik.</p>
 
-<p><img src="/assets/images/localization_dan_recognition.png" alt="Ilustrasi localization dan recognition" /></p>
+<p><img src="/assets/images/localization_dan_recognition.png" alt="Ilustrasi localization dan recognition" style="display:block; margin-left:auto; margin-right:auto" /></p>
 
 <blockquote>
   <p><strong>Gambar 1.</strong> Ilustrasi <em>localization</em> dan <em>recognition</em> objek menggunakan <em>bounding box</em>.</p>
@@ -288,7 +249,7 @@ Dataset ini terdiri dari <strong>20 object categories</strong>.</p>
   <li><strong>Test</strong>: 4.952 citra, 12.032 objek</li>
 </ul>
 
-<p><img src="/assets/images/dataset_VOC_2007.png" alt="Contoh dataset VOC2007" /></p>
+<p><img src="/assets/images/dataset_VOC_2007.png" alt="Contoh dataset VOC2007" style="display:block; margin-left:auto; margin-right:auto" /></p>
 
 <blockquote>
   <p><strong>Gambar 2.</strong> Contoh anotasi dataset VOC 2007 untuk masing-masing dari 20 <em>class</em>.</p>
@@ -323,7 +284,7 @@ Total dataset MS COCO terdiri dari sekitar <strong>328.000 citra</strong>.</p>
   <li><strong>COCO 2015</strong>: Training 165.482, Validation 81.208, Test 81.434</li>
 </ul>
 
-<p><img src="/assets/images/MS_COCO_dataset.png" alt="Contoh dataset MS COCO" /></p>
+<p><img src="/assets/images/MS_COCO_dataset.png" alt="Contoh dataset MS COCO" style="display:block; margin-left:auto; margin-right:auto" /></p>
 
 <blockquote>
   <p><strong>Gambar 3.</strong> Contoh citra dan anotasi pada MS COCO dataset.</p>

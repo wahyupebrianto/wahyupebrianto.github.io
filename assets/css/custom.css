@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+/* Override minima wrapper to make content a bit wider */
+.wrapper {
+  max-width: 1100px;
+}
 
 .profile-pic {
   width: 200px;
@@ -28,10 +32,6 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #fff;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 2rem;
-
 }
 
 h1, h2, h3, h4, h5 {
@@ -57,3 +57,152 @@ img {
   border-radius: 8px;
 }
 
+/* Navigation */
+.site-header {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+.site-header .wrapper {
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Ensure site title and menu button are vertically centered on the same line */
+.site-title {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.site-nav .nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.site-nav .nav-item {
+  position: relative;
+}
+
+.site-nav .page-link {
+  font-weight: 500;
+}
+
+.site-nav .nav-has-dropdown:hover .nav-dropdown {
+  display: block;
+}
+
+.site-nav .nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 0;
+  list-style: none;
+  min-width: 220px;
+  z-index: 100;
+}
+
+.site-nav .nav-dropdown li {
+  padding: 0;
+}
+
+.site-nav .nav-dropdown a {
+  display: block;
+  padding: 0.3rem 0.8rem;
+  white-space: nowrap;
+}
+
+/* Mobile navigation toggle */
+.nav-toggle-checkbox {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
+  line-height: 1;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive header for small screens */
+@media (max-width: 900px) {
+  .site-header .wrapper {
+    display: block;
+  }
+
+  .nav-toggle-label {
+    display: block;
+    margin-left: auto;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    background-color: #002244; /* button background color */
+    color: #ffffff;            /* button icon color */
+  }
+
+  .site-nav {
+    width: 100%;
+    margin-top: 0.5rem;
+    position: static; /* override minima's absolute positioning on mobile */
+  }
+
+  .site-nav .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+
+  .nav-toggle-checkbox:checked ~ .site-nav .nav-menu {
+    display: flex;
+  }
+
+  /* Make dropdown items flow naturally under "Research" on small screens */
+  .site-nav .nav-dropdown {
+    position: static;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    display: block; /* always visible when menu is open */
+    background-color: #f5f5f5; /* sama seperti kotak menu utama */
+  }
+
+  /* Top-level items (About, Research, Teaching, ...) */
+  .site-nav .nav-menu > .nav-item > .page-link {
+    padding-left: 0;
+  }
+
+  /* Indent Research children consistently under "Research" */
+  .site-nav .nav-dropdown a {
+    padding: 0.15rem 0 0.15rem 1.25rem;
+  }
+}

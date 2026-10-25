@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek | Wahyu Pebrianto</title>
+<meta name="description" content="Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR...">
+<link rel="canonical" href="https://wahyupebrianto.github.io/id/blog/dataset-gambar-populer/">
+
+<meta property="og:site_name" content="Wahyu Pebrianto">
+<meta property="og:title" content="Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek">
+<meta property="og:description" content="Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR...">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wahyupebrianto.github.io/id/blog/dataset-gambar-populer/">
+<meta property="og:image" content="https://wahyupebrianto.github.io/assets/images/og-default.png">
+<meta property="og:locale" content="id_ID">
+<meta property="article:published_time" content="2022-11-15T00:00:00+07:00">
+<meta property="article:author" content="Wahyu Pebrianto">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="alternate" type="application/atom+xml" title="Wahyu Pebrianto" href="/feed.xml">
+<script>
+  (function () {
+    var root = document.documentElement, theme = null;
+    try { theme = localStorage.getItem('theme'); } catch (e) {}
+    if (theme !== 'light' && theme !== 'dark') {
+      theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    root.setAttribute('data-theme', theme);
+    root.classList.add('js');
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/main.css?v=202610251521">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek",
+  "description": "Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR...",
+  "datePublished": "2022-11-15T00:00:00+07:00",
+  "dateModified": "2022-11-15T00:00:00+07:00",
+  "inLanguage": "id",
+  "mainEntityOfPage": "https://wahyupebrianto.github.io/id/blog/dataset-gambar-populer/",
+  "image": "https://wahyupebrianto.github.io/assets/images/og-default.png",
+  "author": { "@type": "Person", "name": "Wahyu Pebrianto", "url": "https://wahyupebrianto.github.io/" }
+}
+</script>
+
+</head>
+<body class="layout-post">
+  <a class="skip-link" href="#main">Langsung ke konten</a>
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/id/">Wahyu Pebrianto</a>
+
+    <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <span class="when-closed"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="when-open"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/id/">Tentang</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/id/research/">Riset</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/id/teaching/">Pengajaran</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/id/blog/" aria-current="page">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/id/publications/">Publikasi</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="lang-switch" href="/blog/" hreflang="en" lang="en" title="English">EN<span class="sr-only"> – English</span></a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Ganti tema terang/gelap" title="Ganti tema terang/gelap">
+        <span class="when-light"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></span>
+        <span class="when-dark"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <main id="main" class="site-main">
+    <div class="container">
+      <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <p class="eyebrow"><a href="/id/blog/">&larr; Blog</a></p>
+    <h1 class="post-title" itemprop="headline">Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek</h1>
+    <p class="post-meta">
+      <time datetime="2022-11-15T00:00:00+07:00" itemprop="datePublished">15 Nov 2022</time>
+      · 5 menit baca · Computer Vision
+    </p>
+  </header>
+
+  <div class="post-content prose" itemprop="articleBody">
+    <h2 id="1-background">1. Background</h2>
+
+<p><em>Object recognition</em> dan <em>object detection</em> merupakan dua permasalahan fundamental dalam bidang <em>computer vision</em>. <em>Object recognition</em> bertujuan untuk menentukan apakah suatu objek dalam citra termasuk ke dalam <em>class</em> tertentu, sedangkan <em>object detection</em> tidak hanya mengklasifikasikan objek, tetapi juga menentukan lokasi objek tersebut di dalam citra. Lokasi objek umumnya direpresentasikan dalam bentuk <em>bounding box</em>.</p>
+
+<p>Penggunaan dataset yang menantang sebagai <em>benchmark</em> memiliki peran yang sangat penting dalam penelitian <em>computer vision</em>. Dataset benchmark memungkinkan adanya perbandingan yang adil dan terstandarisasi antara berbagai algoritma, sekaligus menetapkan target performa yang jelas bagi metode-metode baru <a href="#ref-1">[1]</a>. Tanpa adanya dataset benchmark yang disepakati bersama, evaluasi kinerja suatu metode akan sulit direproduksi dan kurang bermakna secara ilmiah.</p>
+
+<p>Dalam beberapa dekade terakhir, dataset umum (<em>general-purpose datasets</em>) untuk <em>object detection</em> seperti <strong>PASCAL VOC</strong>, <strong>MS COCO</strong>, dan <strong>ImageNet</strong> telah menjadi arus utama (<em>mainstream</em>) dalam penelitian <em>object detection</em> dan <em>object recognition</em>. Dataset-dataset ini tidak hanya menyediakan jumlah citra yang besar, tetapi juga anotasi yang kaya dan beragam, sehingga mampu merepresentasikan kompleksitas dunia nyata secara lebih baik.</p>
+
+<p><img src="/assets/images/localization_dan_recognition.png" alt="Ilustrasi localization dan recognition" class="img-center" loading="lazy" /></p>
+
+<blockquote>
+  <p><strong>Gambar 1.</strong> Ilustrasi <em>localization</em> dan <em>recognition</em> objek menggunakan <em>bounding box</em>.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="2-dataset">2. Dataset</h2>
+
+<h3 id="a-pascal-visual-object-classes-voc">A. PASCAL Visual Object Classes (VOC)</h3>
+
+<p><strong>Background</strong>
+PASCAL Visual Object Classes (VOC) dataset merupakan salah satu dataset benchmark paling awal dan paling berpengaruh dalam penelitian <em>object detection</em> dan <em>object recognition</em>. Dataset ini dikembangkan melalui serangkaian tantangan (<em>challenges</em>) yang diselenggarakan secara tahunan dari tahun 2005 hingga 2012 <a href="#ref-1">[1]</a>.</p>
+
+<ul>
+  <li><strong>VOC 2005</strong>: memperkenalkan 4 <em>object classes</em> dan menjadi fondasi awal tantangan PASCAL.</li>
+  <li><strong>VOC 2007</strong>: salah satu versi yang paling banyak digunakan sebagai benchmark standar, dengan sekitar 5.000 citra untuk <em>training</em> dan lebih dari 12.000 objek beranotasi.</li>
+  <li><strong>VOC 2012</strong>: versi terakhir, dengan sekitar 11.000 citra <em>training</em> dan lebih dari 27.000 objek beranotasi.</li>
+</ul>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+  <li>Object detection</li>
+  <li>Semantic segmentation</li>
+</ul>
+
+<p><strong>Classes</strong>
+Dataset ini terdiri dari <strong>20 object categories</strong>.</p>
+
+<p><strong>Pembagian Dataset (VOC 2007)</strong></p>
+
+<ul>
+  <li><strong>Train</strong>: 2.501 citra, 6.301 objek</li>
+  <li><strong>Validation</strong>: 2.510 citra, 6.307 objek</li>
+  <li><strong>Train-val</strong>: 5.011 citra, 12.608 objek</li>
+  <li><strong>Test</strong>: 4.952 citra, 12.032 objek</li>
+</ul>
+
+<p><img src="/assets/images/dataset_VOC_2007.png" alt="Contoh dataset VOC2007" class="img-center" loading="lazy" /></p>
+
+<blockquote>
+  <p><strong>Gambar 2.</strong> Contoh anotasi dataset VOC 2007 untuk masing-masing dari 20 <em>class</em>.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="b-ms-coco-dataset">B. MS COCO Dataset</h3>
+
+<p><strong>Background</strong>
+Microsoft Common Objects in Context (MS COCO) dataset dirancang untuk mendeteksi dan melakukan segmentasi objek-objek yang sering dijumpai dalam kehidupan sehari-hari, dengan konteks lingkungan yang alami (<em>in context</em>) <a href="#ref-2">[2]</a>. Dataset ini menargetkan skenario dunia nyata dengan banyak objek kecil, tumpang tindih (<em>overlapping</em>), dan latar belakang yang kompleks.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Object detection</li>
+  <li>Instance segmentation</li>
+  <li>Keypoint detection</li>
+  <li>Image captioning</li>
+</ul>
+
+<p><strong>Classes</strong>
+Dataset ini mencakup <strong>80 object categories</strong>.</p>
+
+<p><strong>Jumlah Data</strong>
+Total dataset MS COCO terdiri dari sekitar <strong>328.000 citra</strong>.</p>
+
+<p><strong>Detail Rilis Dataset</strong></p>
+
+<ul>
+  <li><strong>COCO 2014</strong>: Training 82.783, Validation 40.504, Test 40.775</li>
+  <li><strong>COCO 2015</strong>: Training 165.482, Validation 81.208, Test 81.434</li>
+</ul>
+
+<p><img src="/assets/images/MS_COCO_dataset.png" alt="Contoh dataset MS COCO" class="img-center" loading="lazy" /></p>
+
+<blockquote>
+  <p><strong>Gambar 3.</strong> Contoh citra dan anotasi pada MS COCO dataset.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="c-imagenet-dataset">C. ImageNet Dataset</h3>
+
+<p><strong>Background</strong>
+ImageNet merupakan dataset berskala sangat besar yang dirancang untuk mendorong kemajuan dalam <em>visual recognition</em> melalui <strong>ImageNet Large Scale Visual Recognition Challenge (ILSVRC)</strong> <a href="#ref-3">[3]</a>. Dataset ini disusun berdasarkan struktur <em>WordNet</em> dan mencakup ribuan <em>object categories</em>.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+  <li>Object localization</li>
+</ul>
+
+<p><strong>Classes</strong></p>
+
+<ul>
+  <li>Lebih dari <strong>20.000 categories</strong> secara keseluruhan</li>
+  <li><strong>1.000 object classes</strong> pada subset ILSVRC</li>
+</ul>
+
+<p><strong>Detail Dataset</strong></p>
+
+<ul>
+  <li>±1,2 juta citra <em>training</em></li>
+  <li>50.000 citra <em>validation</em></li>
+  <li>100.000 citra <em>test</em></li>
+</ul>
+
+<p>ImageNet berperan penting dalam mendorong perkembangan <em>deep learning</em>, khususnya <em>convolutional neural networks (CNN)</em>, dan sering digunakan sebagai dataset <em>pretraining</em>.</p>
+
+<hr />
+
+<h3 id="d-open-images-dataset">D. Open Images Dataset</h3>
+
+<p><strong>Background</strong>
+Open Images Dataset dikembangkan oleh Google untuk menyediakan dataset berskala besar dengan anotasi yang kaya, mencakup <em>image-level labels</em>, <em>bounding boxes</em>, dan <em>visual relationships</em> <a href="#ref-4">[4]</a>.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+  <li>Object detection</li>
+  <li>Visual relationship detection</li>
+</ul>
+
+<p><strong>Classes</strong></p>
+
+<ul>
+  <li>Lebih dari <strong>600 object classes</strong> untuk <em>object detection</em></li>
+</ul>
+
+<p><strong>Detail Dataset</strong>
+Dataset ini mencakup jutaan citra dengan anotasi <em>bounding box</em> dalam jumlah yang sangat besar, sehingga sangat relevan untuk riset <em>object detection</em> skala besar.</p>
+
+<hr />
+
+<h3 id="e-cifar-10-dataset">E. CIFAR-10 Dataset</h3>
+
+<p><strong>Background</strong>
+CIFAR-10 merupakan dataset klasik yang banyak digunakan dalam penelitian awal <em>image classification</em> <a href="#ref-5">[5]</a>. Dataset ini sering dijadikan baseline untuk evaluasi arsitektur dan algoritma baru.</p>
+
+<p><strong>Task</strong></p>
+
+<ul>
+  <li>Image classification</li>
+</ul>
+
+<p><strong>Classes</strong></p>
+
+<ul>
+  <li><strong>10 object classes</strong></li>
+</ul>
+
+<p><strong>Detail Dataset</strong></p>
+
+<ul>
+  <li>Total 60.000 citra berwarna</li>
+  <li>Ukuran citra: 32 × 32 piksel</li>
+  <li>Training: 50.000 citra</li>
+  <li>Test: 10.000 citra</li>
+</ul>
+
+<hr />
+
+<h2 id="3-penutup">3. Penutup</h2>
+
+<p>Dataset benchmark memainkan peran krusial dalam perkembangan riset <em>object recognition</em> dan <em>object detection</em>. PASCAL VOC menyediakan fondasi evaluasi terstandarisasi, MS COCO menawarkan skenario dunia nyata yang kompleks, ImageNet mendorong pembelajaran representasi visual skala besar, Open Images menghadirkan anotasi yang sangat kaya, dan CIFAR-10 menjadi benchmark klasik untuk evaluasi awal. Pemilihan dataset yang tepat sangat bergantung pada tujuan riset dan kompleksitas task yang ingin diselesaikan.</p>
+
+<hr />
+
+<h2 id="referensi">Referensi</h2>
+
+<p><a id="ref-1"></a>
+<strong>[1]</strong> M. Everingham, L. Van Gool, C. K. I. Williams, J. Winn, and A. Zisserman, “The PASCAL Visual Object Classes (VOC) Challenge,” <em>International Journal of Computer Vision</em>, vol. 88, no. 2, pp. 303–338, 2010.
+[Online]. Available: <a href="https://doi.org/10.1007/s11263-009-0275-4">https://doi.org/10.1007/s11263-009-0275-4</a></p>
+
+<p><a id="ref-2"></a>
+<strong>[2]</strong> T.-Y. Lin <em>et al.</em>, “Microsoft COCO: Common Objects in Context,” in <em>Proceedings of the European Conference on Computer Vision (ECCV)</em>, 2014.
+[Online]. Available: <a href="https://doi.org/10.1007/978-3-319-10602-1_48">https://doi.org/10.1007/978-3-319-10602-1_48</a></p>
+
+<p><a id="ref-3"></a>
+<strong>[3]</strong> J. Deng <em>et al.</em>, “ImageNet: A Large-Scale Hierarchical Image Database,” in <em>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2009.
+[Online]. Available: <a href="https://doi.org/10.1109/CVPR.2009.5206848">https://doi.org/10.1109/CVPR.2009.5206848</a></p>
+
+<p><a id="ref-4"></a>
+<strong>[4]</strong> A. Kuznetsova <em>et al.</em>, “The Open Images Dataset V4: Unified Image Classification, Object Detection, and Visual Relationship Detection at Scale,” <em>International Journal of Computer Vision</em>, vol. 128, pp. 1956–1981, 2020.
+[Online]. Available: <a href="https://doi.org/10.1007/s11263-020-01316-z">https://doi.org/10.1007/s11263-020-01316-z</a></p>
+
+<p><a id="ref-5"></a>
+<strong>[5]</strong> A. Krizhevsky, “Learning Multiple Layers of Features from Tiny Images,” Technical Report, University of Toronto, 2009.
+[Online]. Available: <a href="https://www.cs.toronto.edu/~kriz/cifar.html">https://www.cs.toronto.edu/~kriz/cifar.html</a></p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="chips" aria-label="Tag">
+      <li><span>#dataset</span></li>
+      <li><span>#benchmark</span></li>
+      <li><span>#object-detection</span></li>
+      <li><span>#object-recognition</span></li>
+    </ul>
+    <p><a href="/id/blog/">&larr; Kembali ke semua tulisan</a></p>
+  </footer>
+</article>
+
+    </div>
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <ul class="social-list">
+  <li><a class="social-link" href="https://github.com/wahyupebrianto" rel="me noopener" title="GitHub"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="sr-only">GitHub</span></a></li>
+  <li><a class="social-link" href="https://scholar.google.com/citations?user=Q0lW17sAAAAJ&hl=en" rel="me noopener" title="Google Scholar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 9 12 4 2 9l10 5 10-5zM6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></svg><span class="sr-only">Google Scholar</span></a></li>
+  <li><a class="social-link" href="https://www.youtube.com/@wahyupebrianto1989" rel="me noopener" title="YouTube"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M10 9.2v5.6l5-2.8z"/></svg><span class="sr-only">YouTube</span></a></li>
+  <li><a class="social-link" href="https://www.linkedin.com/in/wahyu-pebrianto-9428b7155/" rel="me noopener" title="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M7 10h2v7H7zM8 6.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM11 10h1.9v1c.4-.7 1.2-1.2 2.3-1.2 2 0 2.8 1.2 2.8 3.2V17h-2v-3.5c0-1-.3-1.7-1.3-1.7-1 0-1.7.7-1.7 1.8V17h-2z"/></svg><span class="sr-only">LinkedIn</span></a></li>
+</ul>
+
+    <p class="footer-text">
+      &copy; 2026 Wahyu Pebrianto
+      · <a href="/feed.xml">RSS</a>
+      · Dibuat dengan <a href="https://jekyllrb.com/" rel="noopener">Jekyll</a>
+    </p>
+  </div>
+</footer>
+
+  <script src="/assets/js/site.js?v=202610251521" defer></script>
+</body>
+</html>

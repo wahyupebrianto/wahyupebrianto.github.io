@@ -1,187 +1,155 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Blog | Wahyu Pebrianto</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Blog" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/blog/" />
-<meta property="og:url" content="http://localhost:4000/blog/" />
-<meta property="og:site_name" content="Wahyu Pebrianto" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Blog" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","headline":"Blog","url":"http://localhost:4000/blog/"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Wahyu Pebrianto" /></head>
+<meta name="description" content="Personal website of Wahyu Pebrianto: research, teaching and writing on deep learning, computer vision and multimodal generative AI.">
+<link rel="canonical" href="https://wahyupebrianto.github.io/blog/">
+<link rel="alternate" hreflang="en" href="https://wahyupebrianto.github.io/blog/">
+<link rel="alternate" hreflang="id" href="https://wahyupebrianto.github.io/id/blog/">
+<link rel="alternate" hreflang="x-default" href="https://wahyupebrianto.github.io/blog/">
 
-<link rel="stylesheet" href="/assets/css/custom.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta property="og:site_name" content="Wahyu Pebrianto">
+<meta property="og:title" content="Blog">
+<meta property="og:description" content="Personal website of Wahyu Pebrianto: research, teaching and writing on deep learning, computer vision and multimodal generative AI.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wahyupebrianto.github.io/blog/">
+<meta property="og:image" content="https://wahyupebrianto.github.io/assets/images/og-default.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 
-  <body><header class="site-header" role="banner">
-  <div class="wrapper">
-    <!-- Hidden checkbox to control mobile nav -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" />
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<link rel="alternate" type="application/atom+xml" title="Wahyu Pebrianto" href="/feed.xml">
+<script>
+  (function () {
+    var root = document.documentElement, theme = null;
+    try { theme = localStorage.getItem('theme'); } catch (e) {}
+    if (theme !== 'light' && theme !== 'dark') {
+      theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    root.setAttribute('data-theme', theme);
+    root.classList.add('js');
+  })();
+</script>
+<link rel="stylesheet" href="/assets/css/main.css?v=202610251521">
 
-    <div class="header-top">
-      <a class="site-title" rel="author" href="/">Wahyu Pebrianto</a>
+</head>
+<body class="layout-blog">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">Wahyu Pebrianto</a>
 
-      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
-        ☰
-      </label>
-    </div>
+    <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <span class="when-closed"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+      <span class="when-open"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span>
+    </button>
 
-    <nav class="site-nav" role="navigation">
-      <ul class="nav-menu">
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav-list">
         <li class="nav-item">
-          <a class="page-link" href="/wahyulab/">About</a>
+          <a class="nav-link" href="/">About</a>
         </li>
-
-        <li class="nav-item nav-has-dropdown">
-          <a class="page-link" href="/research/">Research</a>
-          <ul class="nav-dropdown">
-            <li><a href="/research/deep-learning-computer-vision/">Deep Learning for Computer Vision</a></li>
-            <li><a href="/research/multimodal-generative-ai/">Multimodal Generative AI</a></li>
-            <li><a href="/research/neuromorphic-spiking-neural-networks/">Spiking Neural Networks</a></li>
-            <li><a href="/research/other-topics/">Others</a></li>
-          </ul>
-        </li>
-
         <li class="nav-item">
-          <a class="page-link" href="/courses/">Teaching</a>
+          <a class="nav-link" href="/research/">Research</a>
         </li>
-
         <li class="nav-item">
-          <a class="page-link" href="/members/">Members</a>
+          <a class="nav-link" href="/teaching/">Teaching</a>
         </li>
-
         <li class="nav-item">
-          <a class="page-link" href="/blog/">Blog</a>
+          <a class="nav-link" href="/blog/" aria-current="page">Blog</a>
         </li>
-
         <li class="nav-item">
-          <a class="page-link" href="/publications/">Publications</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="page-link" href="/links/">Links</a>
+          <a class="nav-link" href="/publications/">Publications</a>
         </li>
       </ul>
     </nav>
+
+    <div class="header-actions">
+      <a class="lang-switch" href="/id/blog/" hreflang="id" lang="id" title="Bahasa Indonesia">ID<span class="sr-only"> – Bahasa Indonesia</span></a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle light/dark theme">
+        <span class="when-light"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg></span>
+        <span class="when-dark"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <h1>Blog</h1>
+  <main id="main" class="site-main">
+    <div class="container">
+      <div class="page">
+  <h1 class="page-title">Blog</h1>
+  <div class="filters" role="group" aria-label="Filter posts by category" hidden>
+    <button type="button" class="chip-btn" data-filter="" aria-pressed="true">All</button>
+    <button type="button" class="chip-btn" data-filter="Computer Vision" aria-pressed="false">Computer Vision</button>
+    <button type="button" class="chip-btn" data-filter="Deep Learning" aria-pressed="false">Deep Learning</button>
+    <button type="button" class="chip-btn" data-filter="Generative AI" aria-pressed="false">Generative AI</button>
+  </div>
+  <section class="year-group">
+    <h2 class="year-title">2026</h2>
+    <ul class="post-list">
+      <li class="post-item" data-categories="|Generative AI|">
+  <h3 class="post-item-title"><a href="/id/blog/llm-reasoning-agent-harness/">LLM, Reasoning Model, AI Agent, dan Agent Harness: Empat Konsep Sistem AI Modern</a></h3>
+  <p class="post-meta">
+    <time datetime="2026-10-24T20:49:00+07:00">24 Oct 2026</time> · Generative AI <span class="badge" lang="id">ID</span>
+  </p>
+  <p class="post-item-desc">Peta ringkas empat konsep sistem AI modern (LLM, reasoning model, AI agent, dan agent harness): peran, cara kerja, dan rujukannya.</p>
+</li>
 
-<div style="margin-bottom: 1em;">
-  <label for="category-filter"><strong>Kategori:</strong></label>
-  <select id="category-filter" onchange="filterPosts()">
-    <option value="all">Semua</option>
-    
-    
-      
-        <option value="AI">AI</option>
-      
-    
-      
-        <option value="DL">DL</option>
-      
-    
-      
-        <option value="General">General</option>
-      
-    
-  </select>
+    </ul>
+  </section>
+  <section class="year-group">
+    <h2 class="year-title">2024</h2>
+    <ul class="post-list">
+      <li class="post-item" data-categories="|Deep Learning|">
+  <h3 class="post-item-title"><a href="/id/blog/deployment-model-fastai-gradio-huggingface/">Membawa Model Deep Learning ke Produksi dengan FastAI, Gradio dan Hugging Face</a></h3>
+  <p class="post-meta">
+    <time datetime="2024-05-15T13:26:00+07:00">15 May 2024</time> · Deep Learning <span class="badge" lang="id">ID</span>
+  </p>
+  <p class="post-item-desc">Panduan singkat untuk melakukan deployment model deep learning dengan fastAI dan Gradio di Hugging Face, dari pelatihan model hingga aplikasi web yang berjalan di produksi.</p>
+</li>
 
-  <label for="year-filter" style="margin-left: 1em;"><strong>Tahun:</strong></label>
-  <select id="year-filter" onchange="filterPosts()">
-    <option value="all">Semua</option>
-    
-    
-    
-      
-      
-        <option value="2025">2025</option>
-        
-      
-    
-      
-      
-        <option value="2024">2024</option>
-        
-      
-    
-      
-      
-        <option value="2022">2022</option>
-        
-      
-    
-  </select>
+    </ul>
+  </section>
+  <section class="year-group">
+    <h2 class="year-title">2022</h2>
+    <ul class="post-list">
+      <li class="post-item" data-categories="|Computer Vision|">
+  <h3 class="post-item-title"><a href="/id/blog/dataset-gambar-populer/">Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek</a></h3>
+  <p class="post-meta">
+    <time datetime="2022-11-15T00:00:00+07:00">15 Nov 2022</time> · Computer Vision <span class="badge" lang="id">ID</span>
+  </p>
+  <p class="post-item-desc">Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR-10, beserta karakte...</p>
+</li>
+
+    </ul>
+  </section>
+  <p class="muted filter-empty" hidden>No posts yet.</p>
 </div>
 
-<script>
-function filterPosts() {
-  const cat = document.getElementById('category-filter').value;
-  const year = document.getElementById('year-filter').value;
-  const posts = document.querySelectorAll('.post-item');
-
-  posts.forEach(post => {
-    const postCat = post.getAttribute('data-category');
-    const postYear = post.getAttribute('data-year');
-
-    const matchCat = (cat === 'all' || postCat.includes(cat));
-    const matchYear = (year === 'all' || postYear === year);
-
-    post.style.display = (matchCat && matchYear) ? '' : 'none';
-  });
-}
-</script>
-
-
-<ul class="post-list">
-  
-    <li class="post-item"
-        data-category="General"
-        data-year="2025">
-      <h2><a href="/general/2025/08/25/IN-THIS-WORLD.html">IN THIS WORLD</a></h2>
-      <p><small>August 25, 2025 — General</small></p>
-      <p>Mari kita jatuh cinta, Peluklah dunia yang kering ini, Bacalah tanda-tanda harapan, Dari sudut matamu, Basahi kulitmu dengan rahasia, Hangatkan kebebasanmu...</p>
-    </li>
-  
-    <li class="post-item"
-        data-category="DL"
-        data-year="2024">
-      <h2><a href="/dl/2024/05/15/Gradio-HG-FastAI.html">Membawa Model Deep learning ke Produksi dengan FastAI, Gradio dan Hugging Face</a></h2>
-      <p><small>May 15, 2024 — DL</small></p>
-      <p>Panduan singkat untuk melakukan deployment model deep learning dengan fastAI, Gradio di Hugging Face. Penting untuk anda mengetahui bahwa penerapan deep learning bukan sekedar berlama-lama pada proses mengumpulkan data, melatih, dan mengevaluasi model. Akan tetapi kita juga perlu tau bagaimana proses iterasi End-to-End untuk membantu kita memahami gambaran proses yang bermuara ke produksi.</p>
-    </li>
-  
-    <li class="post-item"
-        data-category="AI"
-        data-year="2022">
-      <h2><a href="/ai/2022/11/15/Popular-Dataset.html">Dataset Gambar Populer untuk Tolak Ukur Riset Pengenalan dan Deteksi Objek</a></h2>
-      <p><small>November 15, 2022 — AI</small></p>
-      <p>Artikel ini membahas dataset gambar populer yang umum digunakan sebagai benchmark dalam riset object recognition dan object detection, termasuk PASCAL VOC, MS COCO, ImageNet, Open Images, dan CIFAR-10, beserta karakteristik dan perannya dalam penelitian computer vision.</p>
-    </li>
-  
+    </div>
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <ul class="social-list">
+  <li><a class="social-link" href="https://github.com/wahyupebrianto" rel="me noopener" title="GitHub"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="sr-only">GitHub</span></a></li>
+  <li><a class="social-link" href="https://scholar.google.com/citations?user=Q0lW17sAAAAJ&hl=en" rel="me noopener" title="Google Scholar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 9 12 4 2 9l10 5 10-5zM6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></svg><span class="sr-only">Google Scholar</span></a></li>
+  <li><a class="social-link" href="https://www.youtube.com/@wahyupebrianto1989" rel="me noopener" title="YouTube"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M10 9.2v5.6l5-2.8z"/></svg><span class="sr-only">YouTube</span></a></li>
+  <li><a class="social-link" href="https://www.linkedin.com/in/wahyu-pebrianto-9428b7155/" rel="me noopener" title="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M7 10h2v7H7zM8 6.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM11 10h1.9v1c.4-.7 1.2-1.2 2.3-1.2 2 0 2.8 1.2 2.8 3.2V17h-2v-3.5c0-1-.3-1.7-1.3-1.7-1 0-1.7.7-1.7 1.8V17h-2z"/></svg><span class="sr-only">LinkedIn</span></a></li>
 </ul>
 
-
-      </div>
-    </main><footer class="site-footer">
-  <div class="footer-icons">
-    <a href="https://github.com/USERNAME"><i class="fab fa-github"></i></a>
-    <a href="https://scholar.google.com/..."><i class="fas fa-graduation-cap"></i></a>
-    <a href="https://youtube.com/..."><i class="fab fa-youtube"></i></a>
+    <p class="footer-text">
+      &copy; 2026 Wahyu Pebrianto
+      · <a href="/feed.xml">RSS</a>
+      · Built with <a href="https://jekyllrb.com/" rel="noopener">Jekyll</a>
+    </p>
   </div>
-  <p>Wahyu Pebrianto</p>
 </footer>
-</body>
 
+  <script src="/assets/js/site.js?v=202610251521" defer></script>
+  <script src="/assets/js/blog-filter.js?v=202610251521" defer></script>
+</body>
 </html>
